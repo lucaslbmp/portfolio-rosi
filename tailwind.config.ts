@@ -11,6 +11,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        foregroundSecondary: "var(--foreground-secondary)",
+        primary: "var(--primary-color)",
+        border: "var(--border-color)",
+      },
+      fontFamily: {
+        montserrat: "var(--font-montserrat)",
+        opensans: "var(--font-opensans)",
+      },
+      backgroundImage: {
+        "hero-image": "url('/banner-transparent.png')",
+        "linear-gradient":
+          "linear-gradient(90deg, rgba(255,255,255,1) 5%, rgba(255,220,178,0.4654236694677871) 74%, rgba(251,155,36,0.4822303921568627) 100%);",
       },
     },
   },
