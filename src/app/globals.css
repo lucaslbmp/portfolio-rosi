@@ -4,10 +4,11 @@
 
 :root {
   --background: #ffffff;
+  --background-secondary: #f9f9f9;
   --foreground: #767575;
-  --foreground-secondary: #5b5b5b;
+  --foreground-secondary: #f9f9f9;
   --foreground-tertiary: sienna;
-  --primary-color: #f05858;
+  --primary-color: #ec7329;
   --border-color: #eee;
   --font-montserrat: "Montserrat";
   --font-opensans: "Open Sans"
