@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import SectionAbout from "./components/section-about";
 import SectionHero from "./components/section-hero";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="relative">
       <Header />
       <SectionHero />
+      <SectionAbout />
     </div>
   );
 }
