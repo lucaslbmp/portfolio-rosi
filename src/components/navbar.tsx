@@ -6,14 +6,14 @@ interface NavbarButtonProps extends LinkProps {
 }
 
 const NavbarButton = (props: NavbarButtonProps) => (
-  <Link className="p-3 text-foregroundSecondary hover:text-primary" {...props}>
+  <Link className="p-3 hover:text-primary" {...props}>
     {props.children}
   </Link>
 );
 
 const Navbar = () => {
   return (
-    <nav className="bg-background font-opensans text-xl ">
+    <nav className="bg-inherit font-opensans text-xl ">
       <NavbarButton href="#home">Início</NavbarButton>
       <NavbarButton href="#portfolio">Portfolio</NavbarButton>
       <NavbarButton href="#about">Sobre</NavbarButton>
