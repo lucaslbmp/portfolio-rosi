@@ -27,6 +27,10 @@ export default {
           "linear-gradient(90deg, rgba(255,255,255,1) 5%, rgba(255,220,178,0.4654236694677871) 74%, rgba(251,155,36,0.4822303921568627) 100%);",
         "hero-bg": "url('/grass.jpg')",
       },
+      gridTemplateColumns: {
+        "auto-fill-250": "repeat(auto-fill, minmax(250px, 1fr))",
+        "auto-fit-250": "repeat(auto-fit, minmax(250px, 1fr))",
+      },
     },
   },
   plugins: [],
