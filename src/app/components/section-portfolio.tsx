@@ -1,5 +1,7 @@
 import ProductCard from "@/components/product-card";
+import Title from "@/components/title";
 import { products } from "@/data";
+
 const SectionPortfolio = () => {
   return (
     <section className="p-16">
