@@ -7,12 +7,14 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLElement> {
 const InputField = (props: InputFieldProps) => {
   return (
     <div className={"relative mt-[1.5em]" + " " + props.className}>
-      <label
-        htmlFor={props.name}
-        className="absolute font-bold top-[-1.5em] left-1"
-      >
-        {props.label}
-      </label>
+      {props.label && (
+        <label
+          htmlFor={props.name}
+          className="absolute font-bold top-[-1.5em] left-1"
+        >
+          {props.label}
+        </label>
+      )}
       <input
         {...props}
         className={
