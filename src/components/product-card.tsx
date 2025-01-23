@@ -35,8 +35,7 @@ const ProductCard = ({ thumbnail, name, payment, size }: ProductCardProps) => {
           src={thumbnail}
           alt={name}
           fill
-          className="rounded-t-xl"
-          objectFit="cover"
+          className="rounded-t-xl object-cover"
         />
       </div>
       <div className="flex flex-col justify-center h-[11rem] py-[1rem]">

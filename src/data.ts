@@ -50,3 +50,5 @@ export const products: ProductCardProps[] = [
     category: "Personagens",
   },
 ];
+
+export const categories = [...new Set(products.map((p) => p.category))];
