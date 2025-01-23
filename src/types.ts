@@ -24,3 +24,7 @@ export interface TabProps {
   pane: ReactNode;
 }
 
+export interface SearchBarProps {
+  className?: string;
+  onSearch: (search: string) => void;
+}
