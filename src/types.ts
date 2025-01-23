@@ -14,3 +14,13 @@ export interface ProductCardProps {
   category: string;
 }
 
+export interface TabsContainerProps {
+  tabs: TabProps[];
+}
+
+export interface TabProps {
+  label: string;
+  value?: string;
+  pane: ReactNode;
+}
+
