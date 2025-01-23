@@ -1,54 +1,29 @@
 import { ProductCardProps } from "./types";
+import productsImagesPaths from "../productsImagesPaths.json";
+import { capitalize } from "./utils";
 
-const prefix = "/products-pics/";
+// const prefix = "/products-pics/";
 
-export const products: ProductCardProps[] = [
-  {
-    name: "Alegria",
-    thumbnail: prefix + "alegria.jpg",
-    payment: {
-      regularPrice: 100,
-      sellingPrice: 100,
-      alternativeMethod: "ou em até 10x de R$10,00",
-    },
-    size: "4cm x 2cm",
-    category: "Divertidamente",
-  },
-  {
-    name: "Anjo",
-    thumbnail: prefix + "anjo.jpg",
-    payment: {
-      regularPrice: 110,
-      sellingPrice: 80,
-      alternativeMethod: "ou em até 10x de R$12,00",
-    },
-    size: "6cm x 3cm",
-    category: "Personagens",
-  },
-  {
-    name: "Inveja",
-    thumbnail: prefix + "inveja.jpg",
-    payment: {
-      regularPrice: 100,
-      sellingPrice: 100,
-      alternativeMethod: "ou em até 10x de R$10,00",
-    },
-    size: "4cm x 2cm",
-    category: "Divertidamente",
-  },
-  {
-    name: "Cachorro",
-    thumbnail: prefix + "cachorro.jpg",
-    payment: {
-      regularPrice: 150,
-    },
-    category: "Animais",
-  },
-  {
-    name: "Ayrton Senna",
-    thumbnail: prefix + "senna.jpg",
-    category: "Personagens",
-  },
+export const categories = [
+  "Animações",
+  "Animais",
+  "Pessoas",
+  "Super-Heróis",
+  "Outros",
 ];
 
-export const categories = [...new Set(products.map((p) => p.category))];
+export const products: ProductCardProps[] = productsImagesPaths.map((path) => {
+  const [root, category, filename] = path.substring(1).split("/");
+  console.log(root, category, filename);
+  return {
+    name: capitalize(filename.replace(".jpg", "").split("-").join(" ")),
+    thumbnail: path,
+    payment: {
+      regularPrice: 100,
+      sellingPrice: 100,
+      alternativeMethod: "ou em até 10x de R$10,00",
+    },
+    size: "4cm x 2cm",
+    category: category,
+  };
+});
