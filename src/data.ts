@@ -14,7 +14,6 @@ export const categories = [
 
 export const products: ProductCardProps[] = productsImagesPaths.map((path) => {
   const [root, category, filename] = path.substring(1).split("/");
-  console.log(root, category, filename);
   return {
     name: capitalize(filename.replace(".jpg", "").split("-").join(" ")),
     thumbnail: path,
