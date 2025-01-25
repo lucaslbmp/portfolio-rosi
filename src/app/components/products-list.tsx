@@ -14,7 +14,7 @@ interface CategoriesForm {
 const ProductsList = () => {
   const allCategories = "Todas as categorias";
   const [search, setSearch] = useState<string>();
-  const [currentCategory, setCurrentCategory] = useState<string>();
+  const [currentCategory, setCurrentCategory] = useState<string>(allCategories);
   const { register, getValues } = useForm<CategoriesForm>();
 
   return (
@@ -36,6 +36,7 @@ const ProductsList = () => {
               className="peer hidden"
               value={category}
               {...register("categories")}
+              defaultChecked={category === allCategories}
             />
             <label
               htmlFor={category}
