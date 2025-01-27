@@ -1,4 +1,4 @@
-import { ProductCardProps } from "./types";
+import { ContactItemProps, ProductCardProps } from "./types";
 import productsImagesPaths from "../productsImagesPaths.json";
 import { capitalize } from "./utils";
 
@@ -26,3 +26,24 @@ export const products: ProductCardProps[] = productsImagesPaths.map((path) => {
     category: category,
   };
 });
+
+export const contacts: ContactItemProps[] = [
+  {
+    name: "Facebook",
+    icon: "fab fa-facebook",
+    content: "Rosimeire Pinheiro de Moura",
+    link: "https://web.facebook.com/rosi.pinheirodemoura",
+  },
+  {
+    name: "Instagram",
+    icon: "fab fa-instagram",
+    content: "@rosipmoura",
+    link: "https://instagram.com/rosipmoura",
+  },
+  {
+    name: "Email",
+    icon: "fa-solid fa-envelope",
+    content: "rosi_pinheiro_moura@hotmail.com",
+    link: "mailto:rosi_pinheiro_moura@hotmail.com",
+  },
+];

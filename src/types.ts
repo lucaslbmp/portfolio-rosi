@@ -28,3 +28,10 @@ export interface SearchBarProps {
   className?: string;
   onSearch: (search: string) => void;
 }
+
+export type ContactItemProps = {
+  name: string;
+  icon: string;
+  content: string;
+  link: string;
+};
