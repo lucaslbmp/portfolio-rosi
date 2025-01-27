@@ -2,6 +2,7 @@ import { paginate } from "@/utils";
 import Pagination from "rc-pagination";
 import { JSX, useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import styles from "./paginated-list.module.css";
 
 type ArrowType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
 
@@ -50,13 +51,15 @@ const PaginatedList = <T,>({
         {paginate<T>(list, pageSize, currPage).map(mapFunction)}
       </div>
       <Pagination
-        className="flex gap-4 justify-center [&_li]:flex [&_button]:justify-center [&_button]:flex [&_button]:items-center [&_button]:border-2 [&_button]:w-8 [&_button]:h-8 [&_button]:rounded-md hover:[&_button]:border-primary [&_li[class$=active]_button]:bg-primaryLight [&_li[class$=active]_button]:text-foregroundSecondary"
+        className={styles.pagination}
         pageSize={pageSize}
         onChange={updatePage}
         current={currPage}
         total={list.length}
         showSizeChanger={true}
         itemRender={prevNextArrow}
+        showTitle={false}
+        hideOnSinglePage
       />
     </>
   );

@@ -15,8 +15,7 @@ export default {
         foregroundSecondary: "var(--foreground-secondary)",
         foregroundTertiary: "var(--foreground-tertiary)",
         primary: "var(--primary-color)",
-        primaryLight:
-          "color-mix(in srgb, var(--primary-color), transparent 20%)",
+        primaryLight: "var(--primary-light-color)",
         border: "var(--border-color)",
       },
       fontFamily: {
