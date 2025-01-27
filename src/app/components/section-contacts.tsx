@@ -24,7 +24,7 @@ const SectionContacts = () => {
   };
 
   return (
-    <section className="items-center p-16">
+    <section className="items-center p-16" id="contacts">
       <Title>Contatos</Title>
       <div className="flex flex-col gap-8 items-center">
         <span>

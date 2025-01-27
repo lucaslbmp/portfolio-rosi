@@ -5,7 +5,7 @@ const SectionAbout = () => {
   return (
     <section className="p-16">
       <Title>Sobre</Title>
-      <div className="flex justify-center gap-8 px-[12rem]">
+      <div className="flex justify-center gap-8 px-[12rem]" id="about">
         <div className="relative mx-auto">
           <Image
             src={"/rosi-profile.jpg"}
