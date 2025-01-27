@@ -1,5 +1,8 @@
+"use client";
+
 import { PaymentProps, ProductCardProps } from "@/types";
 import Image from "next/image";
+import { useState } from "react";
 
 const PriceDisplay = ({ payment }: { payment: PaymentProps }) => {
   const { regularPrice, sellingPrice, alternativeMethod } = payment;
@@ -28,29 +31,46 @@ const PriceDisplay = ({ payment }: { payment: PaymentProps }) => {
 };
 
 const ProductCard = ({ thumbnail, name, payment, size }: ProductCardProps) => {
+  const [descriptionUp, setDescriptionUp] = useState(false);
   return (
-    <article className="bg-backgroundSecondary rounded-xl text-center">
+    <article className="bg-backgroundSecondary rounded-xl text-center relative overflow-y-hidden">
       <div className="h-[18rem] relative rounded-xl">
         <Image
           src={thumbnail}
           alt={name}
           fill
-          className="rounded-t-xl object-cover"
+          className="rounded-xl object-cover"
         />
       </div>
-      <div className="flex flex-col justify-center h-[11rem] py-[1rem]">
-        <div className="basis-1/6 text-lg font-bold">{name}</div>
-        <div className="shrink-0 basis-4/6 pt-6">
+      <div
+        className={`flex flex-col gap-4 justify-center px-4 py-4 absolute ${
+          descriptionUp ? "bottom-0" : "bottom-[-7rem]"
+        } left-0 right-0 bg-backgroundSecondary opacity-85 cursor-pointer transition-all delay-3000`}
+        onMouseEnter={() => setDescriptionUp(true)}
+        onMouseLeave={() => setDescriptionUp(false)}
+      >
+        <div
+          className="text-lg font-bold mt-5 text-ellipsis overflow-hidden whitespace-nowrap"
+          title={name}
+        >
+          {name}
+        </div>
+        <div className="items-center">
           {payment ? (
             <PriceDisplay payment={payment} />
           ) : (
             <div className="text-[#bbb]">Preço indisponível</div>
           )}
         </div>
-        <div className="basis-1/6">
+        <div className="">
           <strong>Tamanho: </strong>
           {size ?? "Indisponível"}
         </div>
+        <i
+          className={`text-2xl py-2 fa-solid fa-circle-chevron-${
+            descriptionUp ? "down" : "up"
+          } absolute top-0 left-0 right-0`}
+        />
       </div>
     </article>
   );
