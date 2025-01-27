@@ -27,3 +27,7 @@ body {
   background: var(--background);
   font-family: "Roboto";
 }
+
+* {
+  max-width: 100%;
+}
