@@ -30,10 +30,20 @@ const PriceDisplay = ({ payment }: { payment: PaymentProps }) => {
   );
 };
 
-const ProductCard = ({ thumbnail, name, payment, size }: ProductCardProps) => {
+const ProductCard = ({
+  thumbnail,
+  name,
+  payment,
+  size,
+  onClick,
+}: ProductCardProps) => {
   const [descriptionUp, setDescriptionUp] = useState(false);
   return (
-    <article className="bg-backgroundSecondary rounded-xl text-center relative overflow-y-hidden">
+    <article
+      className="bg-backgroundSecondary rounded-xl text-center relative overflow-y-hidden cursor-pointer transition-transform duration-500 hover:[transform:scale(1.06)]"
+      title="Clique para expandir"
+      onClick={onClick}
+    >
       <div className="h-[18rem] relative rounded-xl">
         <Image
           src={thumbnail}

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { BaseSyntheticEvent, ReactNode } from "react";
 
 export interface PaymentProps {
   regularPrice: number;
@@ -12,6 +12,7 @@ export interface ProductCardProps {
   payment?: PaymentProps;
   size?: string;
   category: string;
+  onClick: (e: BaseSyntheticEvent) => void;
 }
 
 export interface TabsContainerProps {
