@@ -36,3 +36,10 @@ export type ContactItemProps = {
   content: string;
   link: string;
 };
+
+export interface ProductForm {
+  name: string;
+  category: string;
+  size: string;
+  imageFile: File;
+}

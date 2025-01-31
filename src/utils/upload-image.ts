@@ -1,8 +1,4 @@
-import {
-  S3Client,
-  PutObjectCommand,
-  ObjectCannedACL,
-} from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
 
 const s3 = new S3Client({
@@ -26,13 +22,13 @@ export const uploadImageToS3 = async (
     Key: uniqueFileName,
     Body: file,
     ContentType: mimeType,
-    ACL: ObjectCannedACL.public_read, // Optional: Make file public
   };
 
   try {
     const command = new PutObjectCommand(params);
     await s3.send(command);
-    return `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${uniqueFileName}`;
+    const url = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${uniqueFileName}`;
+    return url;
   } catch (error) {
     console.error("Error uploading to S3:", error);
     throw error;
