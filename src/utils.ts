@@ -14,3 +14,7 @@ export function paginate<T>(
 export function capitalize(word: string) {
   return word.at(0)?.toUpperCase() + word.substring(1);
 }
+
+export function toNumber(str: string) {
+  return !Number.isNaN(Number(str)) ? Number(str) : undefined;
+}

@@ -37,9 +37,10 @@ export type ContactItemProps = {
   link: string;
 };
 
-export interface ProductForm {
+export interface ProductFormType {
   name: string;
   category: string;
   size: string;
   imageFile: File;
+  payment?: PaymentProps;
 }
