@@ -29,7 +29,7 @@ const CategoriesButtons = ({
             id={category}
             type="radio"
             className="peer hidden"
-            value={category}
+            defaultValue={category}
             {...register("categories")}
             defaultChecked={category === defaultCategory}
           />
