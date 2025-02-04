@@ -25,7 +25,7 @@ model Product {
 }
 
 model PaymentInfo {
-  id                String  @id
+  id                Int     @id @default(autoincrement())
   regularPrice      Float
   sellingPrice      Float?
   alternativeMethod String?
