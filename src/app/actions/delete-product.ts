@@ -14,7 +14,7 @@ export async function deleteProductAction(formData: FormData) {
     });
 
     if (!product) {
-      return { success: false, message: "Produto não encontrado" };
+      return;
     }
 
     await prisma.product.delete({
