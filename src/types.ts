@@ -2,8 +2,8 @@ import { BaseSyntheticEvent, ReactNode } from "react";
 
 export interface PaymentProps {
   regularPrice: number;
-  sellingPrice?: number;
-  alternativeMethod?: string;
+  sellingPrice?: number | null;
+  alternativeMethod?: string | null;
 }
 
 export interface ProductCardProps {
@@ -11,8 +11,7 @@ export interface ProductCardProps {
   thumbnail: string;
   payment?: PaymentProps;
   size?: string;
-  category: string;
-  onClick: (e: BaseSyntheticEvent) => void;
+  onClick?: (e: BaseSyntheticEvent) => void;
 }
 
 export interface TabsContainerProps {
