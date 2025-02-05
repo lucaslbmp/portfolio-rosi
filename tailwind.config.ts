@@ -17,6 +17,7 @@ export default {
         primary: "var(--primary-color)",
         primaryLight: "var(--primary-light-color)",
         border: "var(--border-color)",
+        danger: "var(--danger-color)",
       },
       fontFamily: {
         montserrat: "var(--font-montserrat)",
