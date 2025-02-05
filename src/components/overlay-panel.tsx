@@ -11,14 +11,14 @@ import Button from "./button";
 
 interface ProductFormPanelProps {
   children: ReactNode;
-  confirmButton?: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;
+  triggerButton?: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;
 }
 
-const OverlayPanel = ({ children, confirmButton }: ProductFormPanelProps) => {
+const OverlayPanel = ({ children, triggerButton }: ProductFormPanelProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const clickableConfirmButton = confirmButton ? (
-    cloneElement(confirmButton, { onClick: () => setIsOpen(true) })
+  const clickableConfirmButton = triggerButton ? (
+    cloneElement(triggerButton, { onClick: () => setIsOpen(true) })
   ) : (
     <Button onClick={() => setIsOpen(true)}>Confirmar</Button>
   );
