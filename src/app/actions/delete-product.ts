@@ -7,11 +7,18 @@ import { revalidatePath } from "next/cache";
 export async function deleteProductAction(formData: FormData) {
   try {
     const id = formData.get("product-id") as string;
+    // const categoryId = formData.get("category-id") as string;
 
-    if (!id) return;
-
-    const product = await prisma.product.delete({
+    const product = await prisma.product.findUnique({
       where: { id: toNumber(id) },
+    });
+
+    if (!product) {
+      return { success: false, message: "Produto não encontrado" };
+    }
+
+    await prisma.product.delete({
+      where: { id: product.id },
     });
 
     console.log("Deletou produto com sucesso: " + product);
