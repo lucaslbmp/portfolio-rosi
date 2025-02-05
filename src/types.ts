@@ -39,8 +39,14 @@ export type ContactItemProps = {
 
 export interface ProductFormType {
   name: string;
-  category: string;
   size: string;
   imageFile: File;
+  payment?: PaymentProps;
+}
+
+export interface ProductUpdateFormType {
+  name?: string;
+  size?: string;
+  imageFile?: File;
   payment?: PaymentProps;
 }
