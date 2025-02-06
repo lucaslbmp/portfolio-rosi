@@ -68,7 +68,7 @@ const ProductsList = () => {
           <ProductCard
             key={p.name}
             {...p}
-            onClick={() => setSelectedImage(p.thumbnail)}
+            onClick={() => setSelectedImage(p.image)}
           />
         )}
         listClassName="grid grid-cols-auto-fill-250 gap-4"

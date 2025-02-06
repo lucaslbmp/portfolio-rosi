@@ -28,7 +28,7 @@ async function seed() {
             categoryData.products.map(async (product) => ({
               name: product.name,
               size: product.size,
-              thumbnail: await generateImageUrl(product.image),
+              image: await generateImageUrl(product.image),
             }))
           ),
         },

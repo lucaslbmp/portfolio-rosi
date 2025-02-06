@@ -8,14 +8,14 @@ import { PaymentProps } from "@/types";
 const ProductActionButtons = ({
   id,
   name,
-  thumbnail,
+  image,
   size,
   payment,
   categoryId,
 }: {
   id: number;
   name: string;
-  thumbnail: string;
+  image: string;
   size?: string;
   payment?: PaymentProps;
   categoryId: number;
@@ -33,11 +33,11 @@ const ProductActionButtons = ({
         <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6">
           <h2 className="text-2xl font-bold">Atualizar produto</h2>
           <div className="w-[6rem] h-[6rem] relative mx-auto">
-            <Image src={thumbnail} alt={name} fill className="object-cover" />
+            <Image src={image} alt={name} fill className="object-cover" />
           </div>
 
           <ProductForm
-            product={{ id, name, size, thumbnail, payment }}
+            product={{ id, name, size, image, payment }}
             category={categoryId}
           />
         </div>
@@ -69,7 +69,7 @@ const ProductActionButtons = ({
           />
           <div className="w-[18rem] h-[18rem] relative mx-auto">
             <Image
-              src={thumbnail}
+              src={image}
               alt={name}
               fill
               className="rounded-lg"

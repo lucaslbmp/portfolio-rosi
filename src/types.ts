@@ -8,7 +8,7 @@ export interface PaymentProps {
 
 export interface ProductCardProps {
   name: string;
-  thumbnail: string;
+  image: string;
   payment?: PaymentProps;
   size?: string;
   onClick?: (e: BaseSyntheticEvent) => void;

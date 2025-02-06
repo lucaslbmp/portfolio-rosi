@@ -19,7 +19,7 @@ export const createProduct = async ({
   return {
     name,
     size,
-    thumbnail: imageUrl,
+    image: imageUrl,
     payment,
   };
 };

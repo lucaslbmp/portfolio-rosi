@@ -22,13 +22,13 @@ const TestPage = async () => {
             <CategoryHeader id={categoryId} name={categoryName} />
 
             <div className="grid grid-cols-auto-fill-250 gap-4">
-              {products.map(({ id, name, thumbnail, size, payment }) => (
+              {products.map(({ id, name, image, size, payment }) => (
                 <ProductCardWrapper
                   id={id}
                   key={id}
                   categoryId={categoryId}
                   name={name}
-                  thumbnail={thumbnail}
+                  image={image}
                   size={size ?? undefined}
                   payment={payment ?? undefined}
                 />

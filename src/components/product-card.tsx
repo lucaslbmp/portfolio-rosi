@@ -31,7 +31,7 @@ const PriceDisplay = ({ payment }: { payment: PaymentProps }) => {
 };
 
 const ProductCard = ({
-  thumbnail,
+  image,
   name,
   payment,
   size,
@@ -46,7 +46,7 @@ const ProductCard = ({
     >
       <div className="h-[18rem] relative rounded-xl">
         <Image
-          src={thumbnail}
+          src={image}
           alt={name}
           fill
           className="rounded-xl object-cover"

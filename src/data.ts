@@ -16,7 +16,7 @@ export const products: ProductCardProps[] = productsImagesPaths.map((path) => {
   const [root, category, filename] = path.substring(1).split("/");
   return {
     name: capitalize(filename.replace(".jpg", "").split("-").join(" ")),
-    thumbnail: path,
+    image: path,
     payment: {
       regularPrice: 100,
       sellingPrice: 100,

@@ -21,12 +21,12 @@ const ProductProperty = ({
 const ProductCardWrapper = (props: {
   id: number;
   name: string;
-  thumbnail: string;
+  image: string;
   size?: string;
   payment?: PaymentProps;
   categoryId: number;
 }) => {
-  const { id, name, thumbnail, size, categoryId, payment } = props;
+  const { id, name, image, size, categoryId, payment } = props;
   const { regularPrice, sellingPrice, alternativeMethod } = payment ?? {};
 
   return (
@@ -38,7 +38,7 @@ const ProductCardWrapper = (props: {
         <div className="flex flex-col gap-4">
           <div className="h-[8rem] relative rounded-lg mx-8">
             <Image
-              src={thumbnail}
+              src={image}
               alt={name}
               fill
               className="rounded-lg object-cover"
@@ -73,7 +73,7 @@ const ProductCardWrapper = (props: {
             {...{
               id,
               name,
-              thumbnail,
+              image,
               size,
               payment,
               categoryId,
