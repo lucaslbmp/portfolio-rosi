@@ -1,4 +1,5 @@
 import { TextareaHTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface InputFieldProps extends TextareaHTMLAttributes<HTMLElement> {
   label: string;
@@ -6,7 +7,7 @@ interface InputFieldProps extends TextareaHTMLAttributes<HTMLElement> {
 
 const TextareaField = (props: InputFieldProps) => {
   return (
-    <div className={"relative mt-[1.5em]" + " " + props.className}>
+    <div className={twMerge("relative mt-[1.5em]", props.className)}>
       <label
         htmlFor={props.name}
         className="absolute font-bold top-[-1.5em] left-1"

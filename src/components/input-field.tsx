@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface InputFieldProps extends InputHTMLAttributes<HTMLElement> {
   label: string;
@@ -6,7 +7,7 @@ interface InputFieldProps extends InputHTMLAttributes<HTMLElement> {
 
 const InputField = (props: InputFieldProps) => {
   return (
-    <div className={"relative mt-[1.5em] w-full" + " " + props.className}>
+    <div className={twMerge("relative mt-[1.5em] w-full", props.className)}>
       {props.label && (
         <label
           htmlFor={props.name}
