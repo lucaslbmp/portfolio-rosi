@@ -20,11 +20,17 @@ export async function updateProductAction(formData: FormData) {
       ? { regularPrice, sellingPrice, alternativeMethod }
       : undefined;
     const product = { imageFile, name, size, payment };
+
     const _prevPayment =
       (await prisma.paymentInfo.findUnique({ where: { productId: id } })) ??
       undefined;
 
-    await prisma.category.update({
+    const originalProduct = await prisma.product.findUnique({ where: { id } });
+
+    if (!originalProduct) return;
+
+    const updatedCategory = await prisma.category.update({
+      include: { products: true },
       where: { id: category },
       data: {
         products: {
