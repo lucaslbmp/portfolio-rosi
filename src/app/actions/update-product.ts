@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { toNumber } from "@/utils";
+import { deleteImageFromS3 } from "@/utils/delete-image";
 import { updateProduct } from "@/utils/update-product";
 import { revalidatePath } from "next/cache";
 
@@ -52,6 +53,14 @@ export async function updateProductAction(formData: FormData) {
         },
       },
     });
+
+    // Deleting previous image from S3 bucket
+    if (
+      updatedCategory.products.filter(({ id }) => id === originalProduct.id)[0]
+        ?.image !== originalProduct.image
+    ) {
+      deleteImageFromS3(originalProduct.image);
+    }
 
     console.log("Atualizou produto com sucesso: " + product);
     revalidatePath("/products");

@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { toNumber } from "@/utils";
+import { deleteImageFromS3 } from "@/utils/delete-image";
 import { revalidatePath } from "next/cache";
 
 export async function deleteProductAction(formData: FormData) {
@@ -17,11 +18,15 @@ export async function deleteProductAction(formData: FormData) {
       return;
     }
 
-    await prisma.product.delete({
+    const deletedProduct = await prisma.product.delete({
       where: { id: product.id },
     });
 
-    console.log("Deletou produto com sucesso: " + product);
+    if (deletedProduct) {
+      deleteImageFromS3(deletedProduct.image);
+    }
+
+    console.log("Deletou produto com sucesso: " + deletedProduct);
     revalidatePath("/products");
   } catch (error) {
     console.error("Deletion error:", error);
