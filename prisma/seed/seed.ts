@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { categories } from "./categories.mjs";
+import { contacts } from "./contacts.mjs";
 import { uploadImageToS3 } from "@/utils/upload-image";
 import { existsSync, readFileSync } from "fs";
 import path from "path";
@@ -35,6 +36,14 @@ async function seed() {
       },
     });
     console.log(`Created category: ${category.name}`);
+  }
+
+  for (const contactData of contacts) {
+    const { name, icon, content, link } = contactData;
+    const contact = await prisma.contact.create({
+      data: { name, icon, content, link },
+    });
+    console.log(`Created contact: ${contact.name}`);
   }
 }
 
