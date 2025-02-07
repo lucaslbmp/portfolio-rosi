@@ -25,8 +25,9 @@ const ProductCardWrapper = (props: {
   size?: string;
   payment?: PaymentProps;
   categoryId: number;
+  categories: { id: number; name: string }[];
 }) => {
-  const { id, name, image, size, categoryId, payment } = props;
+  const { id, name, image, size, categoryId, payment, categories } = props;
   const { regularPrice, sellingPrice, alternativeMethod } = payment ?? {};
 
   return (
@@ -77,6 +78,7 @@ const ProductCardWrapper = (props: {
               size,
               payment,
               categoryId,
+              categories,
             }}
           />
         </div>

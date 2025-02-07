@@ -31,6 +31,7 @@ const TestPage = async () => {
                   image={image}
                   size={size ?? undefined}
                   payment={payment ?? undefined}
+                  categories={categories.map(({ id, name }) => ({ id, name }))}
                 />
               ))}
               <div className="flex justify-center items-center border-dashed border-2 rounded-lg h-[500px]">
