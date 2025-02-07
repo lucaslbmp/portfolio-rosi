@@ -53,8 +53,8 @@ const ProductCard = ({
         />
       </div>
       <div
-        className={`flex flex-col gap-4 justify-center px-4 py-4 absolute ${
-          descriptionUp ? "bottom-0" : "bottom-[-7rem]"
+        className={`flex flex-col gap-4 justify-center px-4 py-4 absolute bottom-0 ${
+          descriptionUp ? "translate-y-0" : "translate-y-[calc(100%-4.5rem)]"
         } left-0 right-0 bg-backgroundSecondary opacity-85 cursor-pointer transition-all delay-3000`}
         onMouseEnter={() => setDescriptionUp(true)}
         onMouseLeave={() => setDescriptionUp(false)}
