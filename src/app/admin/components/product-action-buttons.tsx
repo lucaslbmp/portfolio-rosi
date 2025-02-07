@@ -28,8 +28,8 @@ const ProductActionButtons = ({
       {/* Edit button */}
       <OverlayPanel
         triggerButton={
-          <Button>
-            <i className="fa-solid fa-pencil" />
+          <Button className="w-12">
+            <i className="fa-solid fa-pencil mx-auto" />
           </Button>
         }
       >
@@ -49,8 +49,8 @@ const ProductActionButtons = ({
       {/* Delete button */}
       <OverlayPanel
         triggerButton={
-          <Button title="Excluir" variant="danger">
-            <i className="fa-solid fa-trash" />
+          <Button title="Excluir" variant="danger" className="w-12">
+            <i className="fa-solid fa-trash mx-auto" />
           </Button>
         }
       >
