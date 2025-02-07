@@ -3,11 +3,12 @@ import SectionContacts from "./components/section-contacts";
 import SectionAbout from "./components/section-about";
 import SectionHero from "./components/section-hero";
 import SectionPortfolio from "./components/section-portfolio";
-import { contacts } from "@/data";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fortawesome/fontawesome-free/css/all.css";
+import prisma from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const contacts = await prisma.contact.findMany();
   return (
     <div className="relative">
       <Header contacts={contacts} />
