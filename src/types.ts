@@ -9,8 +9,8 @@ export interface PaymentProps {
 export interface ProductCardProps {
   name: string;
   image: string;
-  payment?: PaymentProps;
-  size?: string;
+  payment?: PaymentProps | null;
+  size?: string | null;
   onClick?: (e: BaseSyntheticEvent) => void;
 }
 

@@ -1,11 +1,15 @@
 import Title from "@/components/title";
 import ProductsList from "./products-list";
+import prisma from "@/lib/prisma";
 
-const SectionPortfolio = () => {
+const SectionPortfolio = async () => {
+  const categories = await prisma.category.findMany({
+    include: { products: { include: { payment: true } } },
+  });
   return (
     <section className="p-16" id="portfolio">
       <Title>Portfolio</Title>
-      <ProductsList />
+      <ProductsList categories={categories} />
     </section>
   );
 };
