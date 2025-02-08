@@ -10,10 +10,15 @@ import CategoryHeader from "./components/category-header";
 import AddCategoryButton from "./components/add-category-button";
 import { auth, signOut } from "@/auth";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 const TestPage = async () => {
   const session = await auth();
   const user = session?.user;
+
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/admin");
+  }
 
   const categories = await prisma.category.findMany({
     include: { products: { include: { payment: true } } },
