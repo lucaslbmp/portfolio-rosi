@@ -12,6 +12,7 @@
     "seed": "tsx prisma/seed/seed.ts"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.7.4",
     "@aws-sdk/client-s3": "^3.735.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -19,10 +20,13 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@prisma/client": "^6.3.0",
+    "@neondatabase/serverless": "^0.10.4",
+    "@prisma/adapter-neon": "^6.3.1",
+    "@prisma/client": "^6.3.1",
     "@radix-ui/react-tabs": "^1.1.2",
     "formik": "^2.4.6",
     "next": "15.1.4",
+    "next-auth": "^5.0.0-beta.25",
     "rc-pagination": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
