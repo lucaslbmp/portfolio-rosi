@@ -12,7 +12,7 @@ import { auth, signOut } from "@/auth";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-const TestPage = async () => {
+const AdminPage = async () => {
   const session = await auth();
   const user = session?.user;
 
@@ -104,4 +104,4 @@ const TestPage = async () => {
   );
 };
 
-export default TestPage;
+export default AdminPage;
