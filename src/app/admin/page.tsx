@@ -28,6 +28,7 @@ const AdminPage = async () => {
       <AdminHeader user={user} />
       <section className="flex flex-col gap-4 p-4">
         <h2 className="text-4xl text-primary">Portifólio</h2>
+        <AddCategoryButton />
         <div className="flex flex-col gap-4">
           {categories.map(
             ({ id: categoryId, name: categoryName, products }) => (
@@ -71,7 +72,6 @@ const AdminPage = async () => {
             )
           )}
         </div>
-        <AddCategoryButton />
       </section>
     </>
   );

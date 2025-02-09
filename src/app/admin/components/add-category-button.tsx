@@ -7,7 +7,7 @@ const AddCategoryButton = () => {
   return (
     <OverlayPanel
       triggerButton={
-        <Button className="mx-auto mt-8">
+        <Button className="mx-auto my-4">
           <i className="fa-solid fa-plus text-2xl" />
           Adicionar categoria
         </Button>
