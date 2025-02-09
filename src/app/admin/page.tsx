@@ -54,7 +54,7 @@ const AdminPage = async () => {
                       }))}
                     />
                   ))}
-                  <div className="flex justify-center items-center border-dashed border-2 rounded-lg h-[500px]">
+                  <div className="flex justify-center items-center border-dashed border-2 rounded-lg h-[500px] w-[350px]">
                     <OverlayPanel
                       triggerButton={
                         <Button title="Adicionar produto" className="mx-auto">
