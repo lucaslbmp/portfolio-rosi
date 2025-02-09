@@ -22,29 +22,45 @@ model Product {
   size       String?
   category   Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   categoryId Int
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@map("products")
 }
 
 model PaymentInfo {
-  id                Int     @id @default(autoincrement())
+  id                Int      @id @default(autoincrement())
   regularPrice      Float
   sellingPrice      Float?
   alternativeMethod String?
-  product           Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  productId         Int     @unique
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId         Int      @unique
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("payments")
 }
 
 model Category {
-  id       Int       @id @default(autoincrement())
-  name     String
-  products Product[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("categories")
 }
 
 model Contact {
-  id      Int    @id @default(autoincrement())
-  name    String
-  icon    String
-  content String
-  link    String
+  id        Int      @id @default(autoincrement())
+  name      String
+  icon      String
+  content   String
+  link      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("contacts")
 }
 
 // ------------ Authentication -----------
