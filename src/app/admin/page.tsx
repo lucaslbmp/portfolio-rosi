@@ -8,9 +8,9 @@ import OverlayPanel from "@/components/overlay-panel";
 import ProductForm from "./components/product-form";
 import CategoryHeader from "./components/category-header";
 import AddCategoryButton from "./components/add-category-button";
-import { auth, signOut } from "@/auth";
-import Image from "next/image";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import AdminHeader from "./components/admin-header";
 
 const AdminPage = async () => {
   const session = await auth();
@@ -25,34 +25,7 @@ const AdminPage = async () => {
   });
   return (
     <>
-      <div className="flex gap-4 bg-backgroundSecondary w-fit p-4 rounded-xl mr-3 mt-3 ml-auto">
-        <div className="flex items-center">
-          <Image
-            src={user?.image ?? ""}
-            alt={user?.name ?? ""}
-            width={55}
-            height={55}
-            className="rounded-lg"
-          />
-        </div>
-
-        <div className="flex flex-col text-xs">
-          <span className="font-bold">{user?.name}</span>
-          <span>{user?.email}</span>
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <Button className="text-xs py-1 rounded-md">
-              <i className="fa-solid fa-arrow-right-from-bracket"></i>
-              Sair
-            </Button>
-          </form>
-        </div>
-      </div>
-
+      <AdminHeader user={user} />
       <section className="flex flex-col gap-4 p-4">
         <h2 className="text-4xl text-primary">Portifólio</h2>
         <div className="flex flex-col gap-4">
