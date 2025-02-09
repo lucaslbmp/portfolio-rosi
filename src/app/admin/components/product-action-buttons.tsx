@@ -28,7 +28,7 @@ const ProductActionButtons = ({
       {/* Edit button */}
       <OverlayPanel
         triggerButton={
-          <Button className="w-12">
+          <Button title="Editar" className="w-12">
             <i className="fa-solid fa-pencil mx-auto" />
           </Button>
         }

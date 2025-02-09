@@ -53,7 +53,7 @@ const AdminPage = async () => {
                   <div className="flex justify-center items-center border-dashed border-2 rounded-lg h-[500px]">
                     <OverlayPanel
                       triggerButton={
-                        <Button className="mx-auto">
+                        <Button title="Adicionar produto" className="mx-auto">
                           <i className="fa-solid fa-plus text-4xl" />
                         </Button>
                       }
