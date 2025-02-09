@@ -21,7 +21,10 @@ const AdminPage = async () => {
   }
 
   const categories = await prisma.category.findMany({
-    include: { products: { include: { payment: true } } },
+    include: {
+      products: { include: { payment: true }, orderBy: { createdAt: "asc" } },
+    },
+    orderBy: { updatedAt: "desc" },
   });
   return (
     <>
