@@ -11,6 +11,7 @@ import AddCategoryButton from "./components/add-category-button";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import AdminHeader from "./components/admin-header";
+import SectionContacts from "./components/section-contacts";
 
 const AdminPage = async () => {
   const session = await auth();
@@ -26,10 +27,14 @@ const AdminPage = async () => {
     },
     orderBy: { updatedAt: "desc" },
   });
+  const contacts = await prisma.contact.findMany();
+
   return (
     <>
       <AdminHeader user={user} />
-      <section className="flex flex-col gap-4 p-4">
+      <SectionContacts contacts={contacts} />
+      <hr />
+      <section className="flex flex-col gap-4 py-8 px-4">
         <h2 className="text-4xl text-primary">Portifólio</h2>
         <AddCategoryButton />
         <div className="flex flex-col gap-4">
