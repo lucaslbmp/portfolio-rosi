@@ -1,8 +1,8 @@
 import { Contact } from "@prisma/client";
 import { twMerge } from "tailwind-merge";
-import AddContactButton from "./add-contact-button";
-import DeleteContactButton from "./delete-contact-button";
-import EditContactButton from "./edit-contact-button";
+import AddContactButton from "../buttons/add-contact-button";
+import DeleteContactButton from "../buttons/delete-contact-button";
+import EditContactButton from "../buttons/edit-contact-button";
 
 const SectionContacts = ({ contacts }: { contacts: Contact[] }) => {
   return (

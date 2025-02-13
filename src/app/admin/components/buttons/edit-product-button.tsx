@@ -3,7 +3,7 @@
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
 import Image from "next/image";
-import ProductForm from "./product-form";
+import ProductForm from "../forms/product-form";
 import { useState } from "react";
 import { PaymentProps } from "@/types";
 

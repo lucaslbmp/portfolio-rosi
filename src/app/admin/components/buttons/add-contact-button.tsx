@@ -2,7 +2,7 @@
 
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
-import ContactForm from "./contact-form";
+import ContactForm from "../forms/contact-form";
 import { useState } from "react";
 
 const AddContactButton = () => {

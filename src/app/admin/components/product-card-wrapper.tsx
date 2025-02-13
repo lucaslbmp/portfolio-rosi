@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { PaymentProps } from "@/types";
 import { formatToReais } from "@/utils";
-import EditProductButton from "./edit-product-button";
-import DeleteProductButton from "./delete-product-button";
-import ChangeCategoryButton from "./change-category-button";
+import EditProductButton from "./buttons/edit-product-button";
+import DeleteProductButton from "./buttons/delete-product-button";
+import ChangeCategoryButton from "./buttons/change-category-button";
 
 const ProductProperty = ({
   label,

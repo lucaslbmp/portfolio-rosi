@@ -1,5 +1,5 @@
-import EditCategoryButton from "./edit-category-button";
-import DeleteCategoryButton from "./delete-category-button";
+import EditCategoryButton from "./buttons/edit-category-button";
+import DeleteCategoryButton from "./buttons/delete-category-button";
 
 interface CategoryHeaderProps {
   id: number;

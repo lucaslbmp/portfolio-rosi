@@ -3,7 +3,7 @@
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
 import { useState } from "react";
-import ProductForm from "./product-form";
+import ProductForm from "../forms/product-form";
 
 type AddProductButton = {
   categoryId: number;
