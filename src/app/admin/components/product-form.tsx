@@ -1,23 +1,33 @@
-"use server";
+"use client";
 
 import InputField from "@/components/input-field";
 import Button from "@/components/button";
 import { createProductAction } from "@/app/actions/create-product";
 import { ProductCardProps } from "@/types";
 import { updateProductAction } from "@/app/actions/update-product";
+import { FormEventHandler } from "react";
 
 const ProductForm = ({
   category,
   product,
+  onSubmit,
 }: {
   category: number;
   product?: ProductCardProps & { id: number };
+  onSubmit?: FormEventHandler<HTMLFormElement>;
 }) => {
   const { id, name, size, payment } = product ?? {};
   const { regularPrice, sellingPrice, alternativeMethod } = payment ?? {};
   return (
     <form
-      action={id ? updateProductAction : createProductAction}
+      // action={id ? updateProductAction : createProductAction}
+      onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (onSubmit) onSubmit(e);
+        const formData = new FormData(e.currentTarget);
+        if (id) await updateProductAction(formData);
+        else await createProductAction(formData);
+      }}
       className="flex flex-col gap-4 items-center"
     >
       <InputField label="Nome" name="name" defaultValue={name} required={!id} />

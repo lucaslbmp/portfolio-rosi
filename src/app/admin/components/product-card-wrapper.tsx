@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { PaymentProps } from "@/types";
 import { formatToReais } from "@/utils";
-import ProductActionButtons from "./product-action-buttons";
+import EditProductButton from "./edit-product-button";
+import DeleteProductButton from "./delete-product-button";
+import ChangeCategoryButton from "./change-category-button";
 
 const ProductProperty = ({
   label,
@@ -70,17 +72,20 @@ const ProductCardWrapper = (props: {
             />
           </div>
 
-          <ProductActionButtons
-            {...{
-              id,
-              name,
-              image,
-              size,
-              payment,
-              categoryId,
-              categories,
-            }}
-          />
+          <div className="flex flex-wrap gap-2 justify-center">
+            <EditProductButton
+              {...{ id, name, image, size, payment, categoryId }}
+            />
+            <DeleteProductButton {...{ id, name }} />
+            <ChangeCategoryButton
+              {...{
+                id,
+                name,
+                image,
+                categories,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

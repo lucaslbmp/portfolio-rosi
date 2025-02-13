@@ -1,10 +1,8 @@
-import Button from "@/components/button";
-import OverlayPanel from "@/components/overlay-panel";
 import { Contact } from "@prisma/client";
 import { twMerge } from "tailwind-merge";
-import ContactForm from "./contact-form";
 import AddContactButton from "./add-contact-button";
-import { deleteContactAction } from "@/app/actions/delete-contact";
+import DeleteContactButton from "./delete-contact-button";
+import EditContactButton from "./edit-contact-button";
 
 const SectionContacts = ({ contacts }: { contacts: Contact[] }) => {
   return (
@@ -30,50 +28,13 @@ const SectionContacts = ({ contacts }: { contacts: Contact[] }) => {
               </div>
               <div className="flex gap-2 my-auto text-base">
                 {/* edit button */}
-                <OverlayPanel
-                  triggerButton={
-                    <Button title="Editar" className=" p-2 rounded-md">
-                      <i className="fa-solid fa-pencil mx-auto" />
-                    </Button>
-                  }
-                >
-                  <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw] max-w-[35rem]">
-                    <h2 className="text-2xl font-bold">Atualizar contato</h2>
-
-                    <ContactForm contact={contact} />
-                  </div>
-                </OverlayPanel>
+                <EditContactButton contact={contact} />
 
                 {/* delete button */}
-                <OverlayPanel
-                  triggerButton={
-                    <Button
-                      variant="danger"
-                      title="Editar"
-                      className=" p-2 rounded-md"
-                    >
-                      <i className="fa-solid fa-trash mx-auto" />
-                    </Button>
-                  }
-                >
-                  <form
-                    action={deleteContactAction}
-                    className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw] max-w-[35rem]"
-                  >
-                    <h2 className="text-2xl font-bold">Deletar contato</h2>
-                    <p>
-                      Deseja mesmo deletar o contato &quot;{contact.content}
-                      &quot;? Esta ação não pode ser revertida!
-                    </p>
-                    <input
-                      type="number"
-                      className="hidden"
-                      defaultValue={contact.id}
-                      name="contact-id"
-                    />
-                    <Button className="mx-auto">Confirmar</Button>
-                  </form>
-                </OverlayPanel>
+                <DeleteContactButton
+                  contactId={contact.id}
+                  displayName={contact.content}
+                />
               </div>
             </div>
           ))}

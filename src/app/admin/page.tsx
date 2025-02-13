@@ -3,15 +3,13 @@ import prisma from "@/lib/prisma";
 import ProductCardWrapper from "./components/product-card-wrapper";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fortawesome/fontawesome-free/css/all.css";
-import Button from "@/components/button";
-import OverlayPanel from "@/components/overlay-panel";
-import ProductForm from "./components/product-form";
 import CategoryHeader from "./components/category-header";
 import AddCategoryButton from "./components/add-category-button";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import AdminHeader from "./components/admin-header";
 import SectionContacts from "./components/section-contacts";
+import AddProductButton from "./components/add-product-button";
 
 const AdminPage = async () => {
   const session = await auth();
@@ -60,20 +58,7 @@ const AdminPage = async () => {
                     />
                   ))}
                   <div className="flex justify-center items-center border-dashed border-2 rounded-lg h-[500px] w-[350px]">
-                    <OverlayPanel
-                      triggerButton={
-                        <Button title="Adicionar produto" className="mx-auto">
-                          <i className="fa-solid fa-plus text-4xl" />
-                        </Button>
-                      }
-                    >
-                      <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6">
-                        <h3 className="text-2xl font-bold">
-                          Adicionar produto
-                        </h3>
-                        <ProductForm category={categoryId} />
-                      </div>
-                    </OverlayPanel>
+                    <AddProductButton categoryId={categoryId} />
                   </div>
                 </div>
               </div>

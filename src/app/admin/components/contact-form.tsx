@@ -1,10 +1,11 @@
-"use server";
+"use client";
 
 import InputField from "@/components/input-field";
 import Button from "@/components/button";
 import { Contact } from "@prisma/client";
 import { createContactAction } from "@/app/actions/create-contact";
 import { updateContactAction } from "@/app/actions/update-contact";
+import { FormEventHandler } from "react";
 
 const stringifyValues = (name?: string, icon?: string) => {
   try {
@@ -18,7 +19,13 @@ const stringifyValues = (name?: string, icon?: string) => {
   }
 };
 
-const ContactForm = ({ contact }: { contact?: Contact }) => {
+const ContactForm = ({
+  contact,
+  onSubmit,
+}: {
+  contact?: Contact;
+  onSubmit?: FormEventHandler<HTMLFormElement>;
+}) => {
   const { id, name, icon, content, link } = contact ?? {};
   console.log("contact ---> ", content, icon);
 
@@ -34,10 +41,16 @@ const ContactForm = ({ contact }: { contact?: Contact }) => {
     Youtube: "fa-brands fa-youtube",
   };
 
-  console.log(JSON.parse(`{"name": "${name}","icon": "${icon}"}`));
   return (
     <form
-      action={id ? updateContactAction : createContactAction}
+      // action={id ? updateContactAction : createContactAction}
+      onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (onSubmit) onSubmit(e);
+        const formData = new FormData(e.currentTarget);
+        if (id) await updateContactAction(formData);
+        else await createContactAction(formData);
+      }}
       className="flex flex-col gap-4 items-center"
     >
       {/* <InputField
