@@ -3,9 +3,9 @@
 import OverlayPanel from "@/components/overlay-panel";
 import ActionButton from "./action-button";
 import InputField from "@/components/input-field";
-import Button from "@/components/button";
 import { useState } from "react";
 import { updateCategoryAction } from "@/app/actions/update-category";
+import SubmitButton from "@/components/submit-button";
 
 type EditCategoryButtonProps = {
   categoryId: number;
@@ -17,6 +17,7 @@ const EditCategoryButton = ({
   categoryId,
 }: EditCategoryButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <OverlayPanel
@@ -33,8 +34,10 @@ const EditCategoryButton = ({
       <form
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
+          setIsLoading(true);
           const formData = new FormData(e.currentTarget);
-          updateCategoryAction(formData);
+          await updateCategoryAction(formData);
+          setIsLoading(false);
           setIsOpen(false);
         }}
         className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[25rem]"
@@ -51,7 +54,9 @@ const EditCategoryButton = ({
           defaultValue={categoryId}
           className="hidden"
         />
-        <Button className="mx-auto">Enviar</Button>
+        <SubmitButton pending={isLoading} className="mx-auto">
+          Enviar
+        </SubmitButton>
       </form>
     </OverlayPanel>
   );

@@ -1,11 +1,11 @@
 "use client";
 
 import InputField from "@/components/input-field";
-import Button from "@/components/button";
 import { Contact } from "@prisma/client";
 import { createContactAction } from "@/app/actions/create-contact";
 import { updateContactAction } from "@/app/actions/update-contact";
-import { FormEventHandler } from "react";
+import { FormEventHandler, useState } from "react";
+import SubmitButton from "@/components/submit-button";
 
 const stringifyValues = (name?: string, icon?: string) => {
   try {
@@ -27,7 +27,7 @@ const ContactForm = ({
   onSubmit?: FormEventHandler<HTMLFormElement>;
 }) => {
   const { id, name, icon, content, link } = contact ?? {};
-  console.log("contact ---> ", content, icon);
+  const [isLoading, setIsLoading] = useState(false);
 
   const contactOptions = {
     Facebook: "fab fa-facebook",
@@ -43,28 +43,17 @@ const ContactForm = ({
 
   return (
     <form
-      // action={id ? updateContactAction : createContactAction}
       onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (onSubmit) onSubmit(e);
+        setIsLoading(true);
         const formData = new FormData(e.currentTarget);
         if (id) await updateContactAction(formData);
         else await createContactAction(formData);
+        setIsLoading(false);
+        if (onSubmit) onSubmit(e);
       }}
       className="flex flex-col gap-4 items-center"
     >
-      {/* <InputField
-        label="Meio de contato"
-        name="contact-name"
-        defaultValue={name}
-        required={!id}
-      />
-      <InputField
-        label="Ícone"
-        name="contact-icon"
-        defaultValue={icon}
-        required={!id}
-      /> */}
       <div className="flex flex-col gap-2">
         <strong>Meio de contato</strong>
         <select
@@ -106,7 +95,7 @@ const ContactForm = ({
         className="hidden"
         name="contact-id"
       />
-      <Button type="submit">Enviar</Button>
+      <SubmitButton pending={isLoading}>Enviar</SubmitButton>
     </form>
   );
 };

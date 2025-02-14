@@ -3,6 +3,7 @@
 import { deleteProductAction } from "@/app/actions/delete-product";
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
+import SubmitButton from "@/components/submit-button";
 import { useState } from "react";
 
 type DeleteProductButtonProps = {
@@ -12,6 +13,7 @@ type DeleteProductButtonProps = {
 
 const DeleteProductButton = ({ id, name }: DeleteProductButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <OverlayPanel
       isOpen={isOpen}
@@ -28,11 +30,12 @@ const DeleteProductButton = ({ id, name }: DeleteProductButtonProps) => {
       }
     >
       <form
-        // action={deleteProductAction}
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
+          setIsLoading(true);
           const formData = new FormData(e.currentTarget);
-          deleteProductAction(formData);
+          await deleteProductAction(formData);
+          setIsLoading(false);
           setIsOpen(false);
         }}
         className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
@@ -49,9 +52,9 @@ const DeleteProductButton = ({ id, name }: DeleteProductButtonProps) => {
           className="hidden"
           required
         />
-        <Button type="submit" className="mx-auto">
+        <SubmitButton pending={isLoading} className="mx-auto">
           Confirmar
-        </Button>
+        </SubmitButton>
       </form>
     </OverlayPanel>
   );

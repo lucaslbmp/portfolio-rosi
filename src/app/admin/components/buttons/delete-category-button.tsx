@@ -2,9 +2,9 @@
 
 import OverlayPanel from "@/components/overlay-panel";
 import ActionButton from "./action-button";
-import Button from "@/components/button";
 import { useState } from "react";
 import { deleteCategoryAction } from "@/app/actions/delete-category";
+import SubmitButton from "@/components/submit-button";
 
 type DeleteCategoryButtonProps = {
   categoryId: number;
@@ -12,6 +12,7 @@ type DeleteCategoryButtonProps = {
 
 const DeleteCategoryButton = ({ categoryId }: DeleteCategoryButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <OverlayPanel
@@ -26,11 +27,12 @@ const DeleteCategoryButton = ({ categoryId }: DeleteCategoryButtonProps) => {
       }
     >
       <form
-        // action={deleteCategoryAction}
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
+          setIsLoading(true);
           const formData = new FormData(e.currentTarget);
-          deleteCategoryAction(formData);
+          await deleteCategoryAction(formData);
+          setIsLoading(false);
           setIsOpen(false);
         }}
         className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
@@ -43,7 +45,9 @@ const DeleteCategoryButton = ({ categoryId }: DeleteCategoryButtonProps) => {
           className="hidden"
         />
         <span>Você deseja mesmo excluir esta categoria?</span>
-        <Button className="mx-auto">Confirmar</Button>
+        <SubmitButton pending={isLoading} className="mx-auto">
+          Confirmar
+        </SubmitButton>
       </form>
     </OverlayPanel>
   );

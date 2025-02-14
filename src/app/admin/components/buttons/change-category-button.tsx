@@ -3,6 +3,7 @@
 import { shiftProductCategory } from "@/app/actions/shift-product-category";
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
+import SubmitButton from "@/components/submit-button";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -20,6 +21,7 @@ const ChangeCategoryButton = ({
   categories,
 }: ChangeCategoryButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <OverlayPanel
       isOpen={isOpen}
@@ -37,8 +39,10 @@ const ChangeCategoryButton = ({
       <form
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
+          setIsLoading(true);
           const formData = new FormData(e.currentTarget);
-          shiftProductCategory(formData);
+          await shiftProductCategory(formData);
+          setIsLoading(false);
           setIsOpen(false);
         }}
         className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
@@ -72,9 +76,9 @@ const ChangeCategoryButton = ({
             objectFit="cover"
           />
         </div>
-        <Button type="submit" className="mx-auto">
+        <SubmitButton pending={isLoading} className="mx-auto">
           Confirmar
-        </Button>
+        </SubmitButton>
       </form>
     </OverlayPanel>
   );

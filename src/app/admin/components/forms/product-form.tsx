@@ -1,11 +1,11 @@
 "use client";
 
 import InputField from "@/components/input-field";
-import Button from "@/components/button";
 import { createProductAction } from "@/app/actions/create-product";
 import { ProductCardProps } from "@/types";
 import { updateProductAction } from "@/app/actions/update-product";
-import { FormEventHandler } from "react";
+import { FormEventHandler, useState } from "react";
+import SubmitButton from "@/components/submit-button";
 
 const ProductForm = ({
   category,
@@ -18,15 +18,17 @@ const ProductForm = ({
 }) => {
   const { id, name, size, payment } = product ?? {};
   const { regularPrice, sellingPrice, alternativeMethod } = payment ?? {};
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <form
-      // action={id ? updateProductAction : createProductAction}
       onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (onSubmit) onSubmit(e);
+        setIsLoading(true);
         const formData = new FormData(e.currentTarget);
         if (id) await updateProductAction(formData);
         else await createProductAction(formData);
+        setIsLoading(false);
+        if (onSubmit) onSubmit(e);
       }}
       className="flex flex-col gap-4 items-center"
     >
@@ -68,7 +70,7 @@ const ProductForm = ({
         name="alternativeMethod"
         defaultValue={alternativeMethod ?? undefined}
       />
-      <Button type="submit">Enviar</Button>
+      <SubmitButton pending={isLoading}>Enviar</SubmitButton>
     </form>
   );
 };
