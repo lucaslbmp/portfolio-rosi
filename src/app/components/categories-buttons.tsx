@@ -1,5 +1,3 @@
-import { useForm } from "react-hook-form";
-
 interface CategoryItem {
   id: number;
   name: string;
@@ -11,21 +9,19 @@ interface CategoriesButtonsProps {
   handleCategoryChange: (value: string) => void;
 }
 
-interface CategoriesForm {
-  categories: string;
-}
-
 const CategoriesButtons = ({
   categoriesList,
   defaultCategory,
   handleCategoryChange,
 }: CategoriesButtonsProps) => {
-  const { register, getValues } = useForm<CategoriesForm>();
-
   return (
     <form
       action=""
-      onInput={() => handleCategoryChange(getValues("categories"))}
+      onInput={(e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        handleCategoryChange(formData.get("categories") as string);
+      }}
       className="flex flex-wrap justify-center gap-4"
     >
       {categoriesList?.map(({ id, name }) => (
@@ -35,7 +31,7 @@ const CategoriesButtons = ({
             type="radio"
             className="peer hidden"
             defaultValue={id}
-            {...register("categories")}
+            name="categories"
             defaultChecked={id === defaultCategory}
           />
           <label
