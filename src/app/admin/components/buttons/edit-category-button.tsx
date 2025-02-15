@@ -40,7 +40,7 @@ const EditCategoryButton = ({
           setIsLoading(false);
           setIsOpen(false);
         }}
-        className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[25rem]"
+        className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
       >
         <h3 className="text-2xl font-bold">Editar categoria</h3>
         <InputField

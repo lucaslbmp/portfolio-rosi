@@ -27,7 +27,7 @@ const EditContactButton = ({ contact }: EditContactButtonProps) => {
         </Button>
       }
     >
-      <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw] max-w-[35rem]">
+      <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6">
         <h2 className="text-2xl font-bold">Atualizar contato</h2>
 
         <ContactForm contact={contact} onSubmit={() => setIsOpen(false)} />

@@ -18,7 +18,7 @@ const AddContactButton = () => {
         </Button>
       }
     >
-      <div className="px-4 w-[25rem] py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6">
+      <div className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6">
         <h2 className="text-2xl font-bold">Adicionar contato</h2>
         <ContactForm onSubmit={() => setIsOpen(false)} />
       </div>

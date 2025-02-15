@@ -31,7 +31,7 @@ const AddCategoryButton = () => {
           setIsOpen(false);
           setIsLoading(false);
         }}
-        className="px-4 w-[25rem] py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
+        className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6"
       >
         <h2 className="text-2xl font-bold">Adicionar categoria</h2>
         <InputField label="Categoria" name="categoryName" />

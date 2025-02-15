@@ -41,7 +41,7 @@ const DeleteContactButton = ({
           setIsLoading(false);
           setIsOpen(false);
         }}
-        className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw] max-w-[35rem]"
+        className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw]"
       >
         <h2 className="text-2xl font-bold">Deletar contato</h2>
         <p>
