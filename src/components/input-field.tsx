@@ -1,7 +1,11 @@
-import { InputHTMLAttributes } from "react";
+import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
-interface InputFieldProps extends InputHTMLAttributes<HTMLElement> {
+interface InputFieldProps
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   label: string;
 }
 
