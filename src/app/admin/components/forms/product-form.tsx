@@ -6,6 +6,7 @@ import { ProductCardProps } from "@/types";
 import { updateProductAction } from "@/app/actions/update-product";
 import { FormEventHandler, useState } from "react";
 import SubmitButton from "@/components/submit-button";
+import CurrencyInput from "@/components/currency-input";
 
 const ProductForm = ({
   category,
@@ -52,14 +53,12 @@ const ProductForm = ({
       />
       <InputField label="Imagem" type="file" name="imageFile" required={!id} />
       <div className="flex gap-4">
-        <InputField
-          type="number"
-          label={"Preço original"}
+        <CurrencyInput
+          label="Preço original"
           name="regularPrice"
           defaultValue={regularPrice}
         />
-        <InputField
-          type="number"
+        <CurrencyInput
           label={"Preço de venda"}
           name="sellingPrice"
           defaultValue={sellingPrice ?? undefined}
