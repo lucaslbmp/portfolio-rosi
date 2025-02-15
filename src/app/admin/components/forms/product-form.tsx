@@ -52,7 +52,7 @@ const ProductForm = ({
         name="product-id"
       />
       <InputField label="Imagem" type="file" name="imageFile" required={!id} />
-      <div className="flex gap-4">
+      <div className="flex gap-4 justify-between w-full">
         <CurrencyInput
           label="Preço original"
           name="regularPrice"
