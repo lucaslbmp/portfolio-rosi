@@ -14,19 +14,23 @@ const SectionContacts = ({ contacts }: { contacts: Contact[] }) => {
           {contacts.map((contact) => (
             <div
               key={contact.id}
-              className="flex gap-4 bg-foregroundSecondary p-4 rounded-lg mx-2"
+              className="flex gap-4 bg-foregroundSecondary p-4 rounded-lg w-[28rem] max-w-full"
             >
               <i
                 className={twMerge("text-4xl my-auto p-2", contact.icon)}
                 title={contact.name}
               />
-              <div className="flex flex-col">
+              <div className="flex flex-col flex-1 basis-[22rem] overflow-hidden">
                 <strong>{contact.content}</strong>
-                <a href={contact.link} className="text-primaryLight underline">
+                <a
+                  href={contact.link}
+                  className="text-primaryLight underline  overflow-hidden text-ellipsis whitespace-nowrap"
+                  title={contact.link}
+                >
                   {contact.link}
                 </a>
               </div>
-              <div className="flex gap-2 my-auto text-base">
+              <div className="flex gap-2 my-auto text-base flex-[5rem]">
                 {/* edit button */}
                 <EditContactButton contact={contact} />
 
