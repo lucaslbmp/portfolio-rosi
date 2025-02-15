@@ -11,10 +11,10 @@ const ActionButton = (props: ActionButtonProps) => (
     {...props}
     type="button"
     variant="ghost"
-    className="text-gray-400 hover:text-primaryLight text-base"
+    className="text-gray-400 hover:text-primaryLight text-sm md:text-base md:[&_span]:block"
   >
     <i className={`fa-solid ${props.icon} text-base`} />
-    {props.label}
+    <span className="hidden">{props.label}</span>
   </Button>
 );
 

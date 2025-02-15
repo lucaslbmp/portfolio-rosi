@@ -11,12 +11,17 @@ const CategoryHeader = ({
   name: categoryName,
 }: CategoryHeaderProps) => {
   return (
-    <div className="border-b-2 border-primaryLight flex gap-4 items-center">
+    <div className="border-b-2 border-primaryLight flex gap-6 items-center justify-between md:justify-normal w-full">
       <h3 className="text-2xl text-primary ">{categoryName}</h3>
 
-      <EditCategoryButton categoryName={categoryName} categoryId={categoryId} />
+      <div className="flex gap-4">
+        <EditCategoryButton
+          categoryName={categoryName}
+          categoryId={categoryId}
+        />
 
-      <DeleteCategoryButton categoryId={categoryId} />
+        <DeleteCategoryButton categoryId={categoryId} />
+      </div>
     </div>
   );
 };
