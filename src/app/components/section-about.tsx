@@ -5,12 +5,15 @@ const SectionAbout = () => {
   return (
     <section className="p-16">
       <Title>Sobre</Title>
-      <div className="flex justify-center gap-8 px-[12rem]" id="about">
+      <div
+        className="flex flex-col md:flex-row justify-center gap-8 lg:px-[12rem]"
+        id="about"
+      >
         <div className="relative mx-auto">
           <Image
             src={"/rosi-profile.jpg"}
             alt="profile-image"
-            className="rounded-full"
+            className="rounded-full "
             width={200}
             height={200}
           />
@@ -20,30 +23,14 @@ const SectionAbout = () => {
           <h2 className="text-2xl text-foregroundTertiary mb-4">
             Quem sou eu?
           </h2>
-          {/* <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            dolorum similique amet sint maxime ab. Id natus alias illum aperiam
-            quos quia! Molestiae dolorem itaque vero odit facilis repudiandae
-            laudantium illum veritatis mollitia assumenda veniam accusantium
-            eligendi velit, sint aperiam!
-          </p> */}
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-            nisi cupiditate qui error ipsa voluptates magni. Enim voluptatum
-            optio molestias facilis similique minima numquam voluptates ratione,
-            repellendus officia reprehenderit id earum ut fugiat fugit! Rerum a
-            ut error quisquam aliquam facilis ipsam! Earum sed, possimus vero
-            animi voluptate culpa pariatur, quas, sit sunt magnam beatae. Illo
-            cum inventore aspernatur accusantium.optio molestias facilis
-            similique minima numquam voluptates ratione, repellendus officia
-            reprehenderit id earum ut fugiat fugit! Rerum a ut error quisquam
-            aliquam facilis ipsam! Earum sed, possimus vero animi voluptate
-            culpa pariatur, quas, sit sunt magnam beatae. Illo cum inventore
-            aspernatur accusantium.similique minima numquam voluptates ratione,
-            repellendus officia reprehenderit id earum ut fugiat fugit! Rerum a
-            ut error quisquam aliquam facilis ipsam! Earum sed, possimus vero
-            animi voluptate culpa pariatur, quas, sit sunt magnam beatae. Illo
-            cum inventore aspernatur accusantium.
+            Olá, sou Rosi Pinheiro, uma pessoa sonhadora, e acredito que a vida
+            é feita de momentos simples, mas cheios de significados, e tento
+            viver cada um deles com alegria e gratidão. Minha maior paixão é
+            criar amigurumis. Há algo muito especial em transformar fios e
+            linhas em pequenos personagens cheios de vida e personalidade. Cada
+            amigurumi que crio é uma forma de expressar minha criatividade e de
+            me conectar com algo que me traz muita paz e satisfação.
           </p>
         </div>
       </div>
