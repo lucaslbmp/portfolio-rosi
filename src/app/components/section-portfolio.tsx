@@ -7,7 +7,7 @@ const SectionPortfolio = async () => {
     include: { products: { include: { payment: true } } },
   });
   return (
-    <section className="p-16" id="portfolio">
+    <section className="p-section" id="portfolio">
       <Title>Portfolio</Title>
       <ProductsList categories={categories} />
     </section>

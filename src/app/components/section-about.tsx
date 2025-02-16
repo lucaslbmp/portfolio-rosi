@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const SectionAbout = () => {
   return (
-    <section className="p-16">
+    <section className="p-section">
       <Title>Sobre</Title>
       <div
         className="flex flex-col md:flex-row justify-center gap-8 lg:px-[12rem]"

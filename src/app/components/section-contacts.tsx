@@ -20,7 +20,7 @@ const SectionContacts = ({ contacts }: SectionContactsProps) => {
   };
 
   return (
-    <section className="items-center p-16" id="contacts">
+    <section className="items-center p-section" id="contacts">
       <Title>Contatos</Title>
       <div className="flex flex-col gap-8 items-center">
         <span>
