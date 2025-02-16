@@ -27,7 +27,7 @@ const SectionContacts = ({ contacts }: SectionContactsProps) => {
           Entre em contato conosco por um de nossos canais para encomendar seu
           amigurumi!
         </span>
-        <div className="flex gap-[5rem] justify-center">
+        <div className="flex gap-[10vw] md:gap-[5rem] justify-center">
           {contacts.map((contact) => (
             <ContactItem key={contact.name} {...contact} />
           ))}
