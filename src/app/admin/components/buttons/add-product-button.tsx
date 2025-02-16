@@ -2,14 +2,16 @@
 
 import Button from "@/components/button";
 import OverlayPanel from "@/components/overlay-panel";
-import { useState } from "react";
+import React, { useState } from "react";
 import ProductForm from "../forms/product-form";
+import { twMerge } from "tailwind-merge";
 
-type AddProductButton = {
+type AddProductButton = React.HTMLAttributes<HTMLButtonElement> & {
   categoryId: number;
+  label?: string;
 };
 
-const AddProductButton = ({ categoryId }: AddProductButton) => {
+const AddProductButton = ({ categoryId, ...props }: AddProductButton) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <OverlayPanel
@@ -17,11 +19,15 @@ const AddProductButton = ({ categoryId }: AddProductButton) => {
       onClose={() => setIsOpen(false)}
       triggerButton={
         <Button
+          {...props}
           title="Adicionar produto"
-          className="mx-auto"
+          className={twMerge("mx-auto text-4xl", props.className)}
           onClick={() => setIsOpen(true)}
         >
-          <i className="fa-solid fa-plus text-4xl" />
+          <i className="fa-solid fa-plus" />
+          {props.label && (
+            <span className="hidden md:block">{props.label}</span>
+          )}
         </Button>
       }
     >
