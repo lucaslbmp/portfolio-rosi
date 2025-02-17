@@ -1,6 +1,6 @@
 import Title from "@/components/title";
 import Link from "next/link";
-import EmailForm from "./email-form";
+// import EmailForm from "./email-form";
 import { ContactItemProps } from "@/types";
 
 interface SectionContactsProps {
@@ -8,7 +8,7 @@ interface SectionContactsProps {
 }
 
 const SectionContacts = ({ contacts }: SectionContactsProps) => {
-  const ContactItem = ({ name, icon, link }: ContactItemProps) => {
+  const ContactItem = ({ icon, link }: ContactItemProps) => {
     return (
       <Link
         href={link}
