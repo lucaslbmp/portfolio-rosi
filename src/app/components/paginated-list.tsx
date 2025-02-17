@@ -1,8 +1,7 @@
 import { paginate } from "@/utils";
-import Pagination from "rc-pagination";
+import Pagination from "./pagination";
 import { JSX, useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-import styles from "./paginated-list.module.css";
 
 type ArrowType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
 
@@ -51,15 +50,11 @@ const PaginatedList = <T,>({
         {paginate<T>(list, pageSize, currPage).map(mapFunction)}
       </div>
       <Pagination
-        className={styles.pagination}
         pageSize={pageSize}
         onChange={updatePage}
         current={currPage}
         total={list.length}
-        showSizeChanger={true}
         itemRender={prevNextArrow}
-        showTitle={false}
-        hideOnSinglePage
       />
     </>
   );
