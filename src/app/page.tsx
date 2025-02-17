@@ -6,6 +6,7 @@ import SectionPortfolio from "./components/section-portfolio";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import prisma from "@/lib/prisma";
+import Footer from "@/components/footer";
 
 export default async function Home() {
   const contacts = await prisma.contact.findMany();
@@ -18,6 +19,7 @@ export default async function Home() {
       <SectionAbout />
       <hr className="bg-primary w-[1500px] mx-auto" />
       <SectionContacts contacts={contacts} />
+      <Footer />
     </div>
   );
 }
