@@ -32,7 +32,7 @@ const SectionContacts = ({ contacts }: SectionContactsProps) => {
             <ContactItem key={contact.name} {...contact} />
           ))}
         </div>
-        <EmailForm className="max-w-[1200px]" />
+        {/* <EmailForm className="max-w-[1200px]" /> */}
       </div>
     </section>
   );
