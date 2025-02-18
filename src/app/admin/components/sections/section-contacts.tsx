@@ -10,7 +10,7 @@ const SectionContacts = ({ contacts }: { contacts: Contact[] }) => {
       <div className="flex flex-col gap-8">
         <h2 className="text-4xl text-primary">Contatos</h2>
         <AddContactButton />
-        <div className="flex flex-wrap gap-4">
+        <div className="grid grid-cols-auto-fill-450 gap-4 mx-auto">
           {contacts.map((contact) => (
             <div
               key={contact.id}
