@@ -13,6 +13,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "rosi-portfolio-pictures-prod.s3.us-east-1.amazonaws.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+      {
+        protocol: "https",
         hostname: "lh3.googleusercontent.com",
         port: "",
         pathname: "/**",
