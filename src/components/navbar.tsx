@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-inherit font-opensans text-lg hidden md:block">
-        <NavbarButton href="#home">Início</NavbarButton>
+        <NavbarButton href="#hero">Início</NavbarButton>
         <NavbarButton href="#portfolio">Portfolio</NavbarButton>
         <NavbarButton href="#about">Sobre</NavbarButton>
         <NavbarButton href="#contacts">Contatos</NavbarButton>
@@ -24,7 +24,7 @@ const Navbar = () => {
       <BurgerMenu
         className="md:hidden"
         menuItems={[
-          { name: "Início", href: "#home" },
+          { name: "Início", href: "#hero" },
           { name: "Portfolio", href: "#portfolio" },
           { name: "Sobre", href: "#about" },
           { name: "Contatos", href: "#contacts" },
