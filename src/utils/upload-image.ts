@@ -2,10 +2,10 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
 
 const s3 = new S3Client({
-  region: process.env.AWS_REGION,
+  region: process.env.REGION_AWS,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: process.env.ACCESS_KEY_ID_AWS!,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY_AWS!,
   },
 });
 
@@ -14,7 +14,7 @@ export const uploadImageToS3 = async (
   fileName: string,
   mimeType: string
 ) => {
-  const bucketName = process.env.AWS_BUCKET_NAME!;
+  const bucketName = process.env.BUCKET_NAME_AWS!;
   const uniqueFileName = `${uuidv4()}-${fileName}`;
 
   const params = {
@@ -27,7 +27,7 @@ export const uploadImageToS3 = async (
   try {
     const command = new PutObjectCommand(params);
     await s3.send(command);
-    const url = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${uniqueFileName}`;
+    const url = `https://${bucketName}.s3.${process.env.REGION_AWS}.amazonaws.com/${uniqueFileName}`;
     return url;
   } catch (error) {
     console.error("Error uploading to S3:", error);
