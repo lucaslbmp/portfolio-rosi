@@ -1,11 +1,16 @@
 import Title from "@/components/title";
 import ProductsList from "./products-list";
 import prisma from "@/lib/prisma";
+import { cache } from "react";
 
-const SectionPortfolio = async () => {
-  const categories = await prisma.category.findMany({
+const getCategories = cache(async () => {
+  return await prisma.category.findMany({
     include: { products: { include: { payment: true } } },
   });
+});
+
+const SectionPortfolio = async () => {
+  const categories = await getCategories();
   return (
     <section className="p-section" id="portfolio">
       <Title>Portfolio</Title>

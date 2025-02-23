@@ -7,6 +7,20 @@ import { redirect } from "next/navigation";
 import AdminHeader from "./components/admin-header";
 import SectionContacts from "./components/sections/section-contacts";
 import SectionPortfolio from "./components/sections/section-portfolio";
+import { cache } from "react";
+
+const getContacts = cache(async () => {
+  return await prisma.contact.findMany();
+});
+
+const getCategories = cache(async () => {
+  return await prisma.category.findMany({
+    include: {
+      products: { include: { payment: true }, orderBy: { createdAt: "asc" } },
+    },
+    orderBy: { updatedAt: "desc" },
+  });
+});
 
 const AdminPage = async () => {
   const session = await auth();
@@ -16,13 +30,8 @@ const AdminPage = async () => {
     redirect("/api/auth/signin?callbackUrl=/admin");
   }
 
-  const categories = await prisma.category.findMany({
-    include: {
-      products: { include: { payment: true }, orderBy: { createdAt: "asc" } },
-    },
-    orderBy: { updatedAt: "desc" },
-  });
-  const contacts = await prisma.contact.findMany();
+  const categories = await getCategories();
+  const contacts = await getContacts();
 
   return (
     <>
