@@ -27,7 +27,7 @@ export const uploadImageToS3 = async (
   try {
     const command = new PutObjectCommand(params);
     await s3.send(command);
-    const url = `https://${bucketName}.s3.${process.env.REGION_AWS}.amazonaws.com/${uniqueFileName}`;
+    const url = `${process.env.NEXT_PUBLIC_CLOUDFRONT_DOMAIN}/${uniqueFileName}`;
     return url;
   } catch (error) {
     console.error("Error uploading to S3:", error);

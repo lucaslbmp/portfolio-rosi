@@ -20,6 +20,21 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "d2yug4zzstwka6.cloudfront.net",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "d1fb1u7sogg98q.cloudfront.net",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+
+      {
+        protocol: "https",
         hostname: "lh3.googleusercontent.com",
         port: "",
         pathname: "/**",
