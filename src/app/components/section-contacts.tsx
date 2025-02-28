@@ -13,6 +13,7 @@ const SectionContacts = ({ contacts }: SectionContactsProps) => {
       <Link
         href={link}
         className="flex gap-2 items-center text-foregroundSecondary bg-primary w-fit p-3 rounded-xl hover:brightness-125"
+        target="_blank"
       >
         <i className={icon + " " + "text-4xl"} />
       </Link>
