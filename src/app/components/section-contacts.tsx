@@ -8,7 +8,7 @@ interface SectionContactsProps {
 }
 
 const SectionContacts = ({ contacts }: SectionContactsProps) => {
-  const ContactItem = ({ icon, link }: ContactItemProps) => {
+  const ContactItem = ({ icon, link, name }: ContactItemProps) => {
     return (
       <Link
         href={link}
@@ -16,6 +16,7 @@ const SectionContacts = ({ contacts }: SectionContactsProps) => {
         target="_blank"
       >
         <i className={icon + " " + "text-4xl"} />
+        <span className="hidden md:inline text-2xl">{name}</span>
       </Link>
     );
   };
