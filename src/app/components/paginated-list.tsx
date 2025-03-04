@@ -1,9 +1,6 @@
 import { paginate } from "@/utils";
 import Pagination from "./pagination";
 import { JSX, useEffect, useState } from "react";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
-
-type ArrowType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
 
 interface PaginatedListProps<T> {
   list: Array<T>;
@@ -11,22 +8,6 @@ interface PaginatedListProps<T> {
   mapFunction: (value: T, index: number, array: T[]) => JSX.Element;
   listClassName?: string;
 }
-
-const prevNextArrow = (
-  current: number,
-  type: ArrowType,
-  originalElement: React.ReactNode
-) => (
-  <button>
-    {type === "prev" ? (
-      <FaAngleLeft />
-    ) : type === "next" ? (
-      <FaAngleRight />
-    ) : (
-      originalElement
-    )}
-  </button>
-);
 
 const PaginatedList = <T,>({
   list,
@@ -54,7 +35,6 @@ const PaginatedList = <T,>({
         onChange={updatePage}
         current={currPage}
         total={list.length}
-        itemRender={prevNextArrow}
       />
     </>
   );

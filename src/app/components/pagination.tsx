@@ -1,5 +1,4 @@
 import Pagination, { PaginationProps } from "rc-pagination";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { twMerge } from "tailwind-merge";
 
 type ArrowType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
@@ -19,9 +18,9 @@ const StyledPagination = ({ ...props }: PaginationProps) => {
         )}
       >
         {type === "prev" ? (
-          <FaAngleLeft />
+          <i className="fa-solid fa-angle-left" />
         ) : type === "next" ? (
-          <FaAngleRight />
+          <i className="fa-solid fa-angle-right" />
         ) : (
           originalElement
         )}
@@ -42,8 +41,8 @@ const StyledPagination = ({ ...props }: PaginationProps) => {
         "[&>li:not(.rc-pagination-item-active)_button:enabled:hover]:text-primaryLight [&>li:not(.rc-pagination-item-active)_button:enabled:hover]:border-primaryLight",
         props.className
       )}
-      nextIcon={<FaAngleRight />}
-      prevIcon={<FaAngleLeft />}
+      nextIcon={<i className="fa-solid fa-angle-right" />}
+      prevIcon={<i className="fa-solid fa-angle-left" />}
       itemRender={itemButton}
       showTitle={false}
       showSizeChanger={true}
