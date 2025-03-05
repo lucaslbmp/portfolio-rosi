@@ -15,6 +15,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: "Amigurumis da Rosi",
   description:
     "Um portfolio de trabalhos de amigurumi produzidos por Rosimeire",
