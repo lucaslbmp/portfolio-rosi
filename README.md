@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amigurumis da Rosi
+Este é um projeto que consiste em um website para a venda de trabalhos de crochê (amigurumis) personalizados, construído com Next.js, TypeScript e TailwindCSS. O site permite que visitantes visualizem os produtos disponíveis, entrem em contato com o vendedor e conheçam mais sobre a loja. Além disso, um painel administrativo permite a gestão dos produtos e categorias.
 
-## Getting Started
+## 🚀 Tecnologias Utilizadas
+- **Next.js + TypeScript** – Framework React para construção de aplicações web rápidas e escaláveis.
+- **TailwindCSS** – Biblioteca para estilização eficiente e responsiva.
+- **Prisma ORM** – Interface para manipulação do banco de dados PostgreSQL.
+- **Auth0** – Autenticação de administradores via Google.
+- **Amazon S3 + CloudFront** – Armazenamento e entrega otimizada de imagens de produtos.
+- **AWS Amplify** – Plataforma utilizada para o deploy da aplicação.
+## 📌 Funcionalidades
+### 🌍 Página de Visitante
+- Visualização de produtos disponíveis para compra.
+- Filtragem por categorias.
+- Seção "Sobre" apresentando a história do vendedor.
+- Contatos para compra ou dúvidas.
 
-First, run the development server:
+  ![image](https://github.com/user-attachments/assets/cd9baaf6-fcec-40a3-8353-0db78d6a7637)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🔑 Painel Administrativo
+- **CRUD de produtos:** Adicionar, editar e remover amigurumis.
+- **Gerenciamento de categorias:** Criar, editar e remover categorias de produtos.
+- **Edição de informações de contato**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  ![image](https://github.com/user-attachments/assets/99325741-a40a-48ed-a3d0-b7add65eccd6)
