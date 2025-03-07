@@ -5,7 +5,7 @@ Este é um projeto que consiste em um website para a venda de trabalhos de croch
 - **Next.js + TypeScript** – Framework React para construção de aplicações web rápidas e escaláveis.
 - **TailwindCSS** – Biblioteca para estilização eficiente e responsiva.
 - **Prisma ORM** – Interface para manipulação do banco de dados PostgreSQL.
-- **Auth0** – Autenticação de administradores via Google.
+- **OAuth** – Autenticação de administradores via Google.
 - **Amazon S3 + CloudFront** – Armazenamento e entrega otimizada de imagens de produtos.
 - **AWS Amplify** – Plataforma utilizada para o deploy da aplicação.
 ## 📌 Funcionalidades
