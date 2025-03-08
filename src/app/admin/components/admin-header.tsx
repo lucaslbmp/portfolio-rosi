@@ -5,10 +5,8 @@ import HeaderBody from "@/components/header-body";
 import SubmitButton from "@/components/submit-button";
 import { User } from "next-auth";
 import Image from "next/image";
-import { useState } from "react";
 
 const AdminHeader = ({ user }: { user?: User }) => {
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <HeaderBody className="flex justify-between mb-6 sticky top-0 z-10 bg-background">
       <h1 className="text-4xl font-montserrat italic  text-primary">
@@ -44,13 +42,10 @@ const AdminHeader = ({ user }: { user?: User }) => {
           <form
             onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
               e.preventDefault();
-              setIsLoading(true);
               await signoutAction();
-              setIsLoading(false);
             }}
           >
             <SubmitButton
-              pending={isLoading}
               className="text-xs py-1 rounded-md px-1 md:px-2"
               title="Sair"
             >

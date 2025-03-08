@@ -4,7 +4,7 @@ import InputField from "@/components/input-field";
 import { Contact } from "@prisma/client";
 import { createContactAction } from "@/app/actions/create-contact";
 import { updateContactAction } from "@/app/actions/update-contact";
-import { FormEventHandler, useState } from "react";
+import { FormEventHandler } from "react";
 import SubmitButton from "@/components/submit-button";
 
 const stringifyValues = (name?: string, icon?: string) => {
@@ -27,7 +27,6 @@ const ContactForm = ({
   onSubmit?: FormEventHandler<HTMLFormElement>;
 }) => {
   const { id, name, icon, content, link } = contact ?? {};
-  const [isLoading, setIsLoading] = useState(false);
 
   const contactOptions = {
     Facebook: "fab fa-facebook",
@@ -45,11 +44,9 @@ const ContactForm = ({
     <form
       onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsLoading(true);
         const formData = new FormData(e.currentTarget);
         if (id) await updateContactAction(formData);
         else await createContactAction(formData);
-        setIsLoading(false);
         if (onSubmit) onSubmit(e);
       }}
       className="flex flex-col gap-4 items-center"
@@ -95,7 +92,7 @@ const ContactForm = ({
         className="hidden"
         name="contact-id"
       />
-      <SubmitButton pending={isLoading}>Enviar</SubmitButton>
+      <SubmitButton>Enviar</SubmitButton>
     </form>
   );
 };

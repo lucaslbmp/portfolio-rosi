@@ -16,7 +16,7 @@ const DeleteContactButton = ({
   displayName,
 }: DeleteContactButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <OverlayPanel
       isOpen={isOpen}
@@ -35,10 +35,8 @@ const DeleteContactButton = ({
       <form
         onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          setIsLoading(true);
           const formData = new FormData(e.currentTarget);
           await deleteContactAction(formData);
-          setIsLoading(false);
           setIsOpen(false);
         }}
         className="px-4 py-2 bg-backgroundSecondary rounded-xl flex flex-col gap-6 w-[70vw]"
@@ -54,9 +52,7 @@ const DeleteContactButton = ({
           defaultValue={contactId}
           name="contact-id"
         />
-        <SubmitButton pending={isLoading} className="mx-auto">
-          Confirmar
-        </SubmitButton>
+        <SubmitButton className="mx-auto">Confirmar</SubmitButton>
       </form>
     </OverlayPanel>
   );

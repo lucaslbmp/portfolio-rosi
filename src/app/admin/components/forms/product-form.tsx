@@ -4,7 +4,7 @@ import InputField from "@/components/input-field";
 import { createProductAction } from "@/app/actions/create-product";
 import { ProductCardProps } from "@/types";
 import { updateProductAction } from "@/app/actions/update-product";
-import { FormEventHandler, useState } from "react";
+import { FormEventHandler } from "react";
 import SubmitButton from "@/components/submit-button";
 import CurrencyInput from "@/components/currency-input";
 
@@ -19,16 +19,14 @@ const ProductForm = ({
 }) => {
   const { id, name, size, payment } = product ?? {};
   const { regularPrice, sellingPrice, alternativeMethod } = payment ?? {};
-  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <form
       onSubmit={async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsLoading(true);
         const formData = new FormData(e.currentTarget);
         if (id) await updateProductAction(formData);
         else await createProductAction(formData);
-        setIsLoading(false);
         if (onSubmit) onSubmit(e);
       }}
       className="flex flex-col gap-4 items-center"
@@ -69,7 +67,7 @@ const ProductForm = ({
         name="alternativeMethod"
         defaultValue={alternativeMethod ?? undefined}
       />
-      <SubmitButton pending={isLoading}>Enviar</SubmitButton>
+      <SubmitButton>Enviar</SubmitButton>
     </form>
   );
 };
