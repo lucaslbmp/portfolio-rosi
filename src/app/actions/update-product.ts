@@ -63,7 +63,7 @@ export async function updateProductAction(formData: FormData) {
     }
 
     console.log("Atualizou produto com sucesso: " + product);
-    revalidatePath("/products");
+    revalidatePath("/");
   } catch (error) {
     console.error("Update error:", error);
     throw new Error("Falha ao atualizar produto:" + error);

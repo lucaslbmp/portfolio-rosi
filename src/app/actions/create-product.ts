@@ -33,7 +33,7 @@ export async function createProductAction(formData: FormData) {
     });
 
     console.log("Criou produto com sucesso: " + product);
-    revalidatePath("/products");
+    revalidatePath("/");
   } catch (error) {
     console.error("Upload error:", error);
     throw new Error("Falha ao carregar categoria:" + error);
