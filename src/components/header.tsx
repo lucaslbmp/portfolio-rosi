@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./navbar";
 import { ContactItemProps } from "@/types";
 import HeaderBody from "./header-body";
+import Image from "next/image";
 
 const Header = ({ contacts }: { contacts: ContactItemProps[] }) => {
   return (
@@ -15,9 +16,15 @@ const Header = ({ contacts }: { contacts: ContactItemProps[] }) => {
         ))}
       </section>
       <HeaderBody>
-        <h1 className="text-4xl font-montserrat italic  text-primary">
-          Amigurumis da Rosi
-        </h1>
+        <div className="h-[90px] w-[430px] relative">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            fill
+            className="mx-auto bg-center object-cover "
+          />
+        </div>
+
         <Navbar />
       </HeaderBody>
     </header>
