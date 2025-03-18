@@ -9,6 +9,11 @@ import prisma from "@/lib/prisma";
 import Footer from "@/components/footer";
 import { cache } from "react";
 
+export async function generateMetadata() {
+  await getContacts();
+  return { title: "Home - MyApp", description: "Category List" };
+}
+
 const getContacts = cache(async () => {
   "use server";
   return await prisma.contact.findMany();
@@ -29,3 +34,5 @@ export default async function Home() {
     </div>
   );
 }
+
+export const revalidate = 10800;

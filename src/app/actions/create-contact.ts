@@ -29,7 +29,7 @@ export async function createContactAction(formData: FormData) {
     });
 
     console.log("Criou contato com sucesso: " + contact);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Create contact error:", error);
     throw new Error("Falha ao criar contato:" + error);

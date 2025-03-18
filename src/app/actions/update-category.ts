@@ -17,7 +17,7 @@ export async function updateCategoryAction(formData: FormData) {
     });
 
     console.log("Atualizou categoria com sucesso: " + category);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Update category error:", error);
     throw new Error("Falha ao atualizar categoria:" + error);

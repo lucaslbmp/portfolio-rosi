@@ -9,6 +9,15 @@ import SectionContacts from "./components/sections/section-contacts";
 import SectionPortfolio from "./components/sections/section-portfolio";
 import { cache } from "react";
 
+export async function generateMetadata() {
+  await getCategories();
+  await getContacts();
+  return {
+    title: "Home - MyApp",
+    description: "Category List and Contacts List",
+  };
+}
+
 const getContacts = cache(async () => {
   return await prisma.contact.findMany();
 });

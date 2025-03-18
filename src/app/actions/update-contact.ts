@@ -23,7 +23,7 @@ export async function updateContactAction(formData: FormData) {
     });
 
     console.log("Atualizou contato com sucesso: " + category);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Update contact error:", error);
     throw new Error("Falha ao atualizar contato:" + error);

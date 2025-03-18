@@ -14,7 +14,7 @@ export async function createCategoryAction(formData: FormData) {
     });
 
     console.log("Criou categoria com sucesso: " + category);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Create category error:", error);
     throw new Error("Falha ao criar categoria:" + error);

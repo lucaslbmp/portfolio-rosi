@@ -2,7 +2,6 @@
 
 import prisma from "@/lib/prisma";
 import { toNumber } from "@/utils";
-import { revalidatePath } from "next/cache";
 
 export async function deleteContactAction(formData: FormData) {
   try {
@@ -13,7 +12,6 @@ export async function deleteContactAction(formData: FormData) {
     });
 
     console.log("Deletou contato com sucesso: " + category);
-    revalidatePath("/");
   } catch (error) {
     console.error("Delete contact error:", error);
     throw new Error("Falha ao deletar contato:" + error);

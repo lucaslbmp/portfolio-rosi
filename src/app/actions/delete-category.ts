@@ -22,7 +22,7 @@ export async function deleteCategoryAction(formData: FormData) {
     images.forEach((image) => deleteImageFromS3(image));
 
     console.log("Deletou categoria com sucesso: " + category);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Delete category error:", error);
     throw new Error("Falha ao deletar categoria:" + error);

@@ -17,7 +17,7 @@ export async function shiftProductCategory(formData: FormData) {
     });
 
     console.log("Trocou categoria com sucesso: " + category);
-    revalidatePath("/");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Category shift error:", error);
     throw new Error("Falha ao trocar categoria:" + error);
