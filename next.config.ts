@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
+    unoptimized: true, // turning off optimization so images can be fetched
     remotePatterns: [
       {
         protocol: "https",
@@ -36,6 +37,22 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+      {
+        // SST deploy native auto-generated domain
+        protocol: "https",
+        hostname: "d146of7ksxl6ie.cloudfront.net",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+      {
+        // SST deploy origin domain
+        protocol: "https",
+        hostname: "placeholder.sst.dev",
         port: "",
         pathname: "/**",
         search: "",

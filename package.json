@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "dev": "next dev --turbopack",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "prod": "next build && dotenv -e .env.production -- npx next start"
+    "prod": "next build && dotenv -e .env.production -- npx next start",
+    "start": "next start"
   },
   "prisma": {
     "seed": "tsx prisma/seed/seed.ts"
@@ -24,6 +24,7 @@
     "@prisma/adapter-neon": "^6.3.1",
     "@prisma/client": "^6.3.1",
     "@radix-ui/react-tabs": "^1.1.2",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.2",
     "next": "15.1.4",
     "next-auth": "^5.0.0-beta.25",
@@ -31,6 +32,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "sst": "3.10.4",
     "tailwind-merge": "^3.0.1",
     "tsx": "^4.19.2"
   },
