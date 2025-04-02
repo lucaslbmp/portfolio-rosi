@@ -13,8 +13,8 @@ export async function generateMetadata() {
   await getCategories();
   await getContacts();
   return {
-    title: "Home - MyApp",
-    description: "Category List and Contacts List",
+    title: "Amigurumis da Rosi - Página de Admin",
+    description: "Página de administrador do portfólio de amigurumis",
   };
 }
 

@@ -11,7 +11,11 @@ import { cache } from "react";
 
 export async function generateMetadata() {
   await getContacts();
-  return { title: "Home - MyApp", description: "Category List" };
+  return {
+    title: "Amigurumis da Rosi",
+    description:
+      "Um portfolio de trabalhos de amigurumi produzidos por Rosimeire",
+  };
 }
 
 const getContacts = cache(async () => {
