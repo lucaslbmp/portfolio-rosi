@@ -16,7 +16,7 @@ const Header = ({ contacts }: { contacts: ContactItemProps[] }) => {
         ))}
       </section>
       <HeaderBody>
-        <div className="h-[90px] w-[430px] relative">
+        <div className="h-[90px] w-[240px] relative">
           <Image
             src="/logo.png"
             alt="logo"
