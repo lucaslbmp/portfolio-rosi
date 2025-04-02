@@ -7,7 +7,7 @@ interface NavbarButtonProps extends LinkProps {
 }
 
 const NavbarButton = (props: NavbarButtonProps) => (
-  <Link className="py-3 px-[1vw] hover:text-primary" {...props}>
+  <Link className="hover:text-primary" {...props}>
     {props.children}
   </Link>
 );
@@ -15,7 +15,7 @@ const NavbarButton = (props: NavbarButtonProps) => (
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-inherit font-opensans text-lg hidden md:block">
+      <nav className="bg-inherit font-opensans text-xl hidden md:flex md:gap-8">
         <NavbarButton href="#hero">Início</NavbarButton>
         <NavbarButton href="#portfolio">Portfolio</NavbarButton>
         <NavbarButton href="#about">Sobre</NavbarButton>
