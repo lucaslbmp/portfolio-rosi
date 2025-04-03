@@ -27,7 +27,7 @@ export async function deleteProductAction(formData: FormData) {
     }
 
     console.log("Deletou produto com sucesso: " + deletedProduct);
-    revalidatePath("/products");
+    revalidatePath("/admin");
   } catch (error) {
     console.error("Deletion error:", error);
     throw new Error("Falha ao deletar produto:" + error);
