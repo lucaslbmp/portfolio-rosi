@@ -53,5 +53,3 @@ const AdminPage = async () => {
 };
 
 export default AdminPage;
-
-export const revalidate = 0;
