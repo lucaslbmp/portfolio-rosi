@@ -12,7 +12,7 @@ import { cache } from "react";
 export async function generateMetadata() {
   await getContacts();
   return {
-    title: "Amigurumis da Rosi",
+    title: "Amigus da Rosi",
     description:
       "Um portfolio de trabalhos de amigurumi produzidos por Rosimeire",
   };
