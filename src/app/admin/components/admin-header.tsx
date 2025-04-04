@@ -9,32 +9,38 @@ import Image from "next/image";
 const AdminHeader = ({ user }: { user?: User }) => {
   return (
     <HeaderBody className="flex justify-between mb-6 sticky top-0 z-10 bg-background">
-      <h1 className="text-4xl font-montserrat italic  text-primary">
-        Amigurumis da Rosi
+      <div className="text-4xl font-montserrat italic text-primary text-center">
+        <div className="h-[90px] w-[240px] relative">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            fill
+            className="mx-auto bg-center object-cover "
+          />
+        </div>
         <p className="text-sm text-foregroundTertiary not-italic font-bold">
           Modo de Edição
         </p>
-      </h1>
+      </div>
       <div className="flex gap-4 w-fit">
-        <div className="flex items-center">
+        <div className="flex items-center w-[64px] relative">
           <Image
             src={user?.image ?? ""}
             alt={user?.name ?? ""}
-            width={55}
-            height={55}
-            className="rounded-lg"
+            fill
+            className="rounded-full object-cover"
           />
         </div>
 
-        <div className="flex flex-col text-xs max-w-[50px] max-w-[100px] md:max-w-[300px]">
+        <div className="flex flex-col text-xs max-w-[100px] md:max-w-[300px]">
           <span
-            className="text-ellipsis overflow-hidden whitespace-nowrap font-bold"
+            className="text-ellipsis overflow-hidden whitespace-nowrap font-bold text-sm"
             title={user?.name ?? ""}
           >
             {user?.name}
           </span>
           <span
-            className="text-ellipsis overflow-hidden whitespace-nowrap"
+            className="text-ellipsis overflow-hidden whitespace-nowrap mb-1"
             title={user?.email ?? ""}
           >
             {user?.email}
