@@ -8,7 +8,7 @@ Este é um projeto que consiste em um website para a venda de trabalhos de croch
 - **TailwindCSS** – Biblioteca para estilização eficiente e responsiva.
 - **Prisma ORM** – Interface para manipulação do banco de dados PostgreSQL.
 - **OAuth** – Autenticação de administradores via Google.
-- **Amazon S3 + CloudFront** – Armazenamento e entrega otimizada de imagens de imagens.
+- **Amazon S3 + CloudFront** – Armazenamento e entrega otimizada de imagens de produtos.
 - **AWS Amplify** – Plataforma utilizada para o deploy da aplicação.
 
 ## 📌 Funcionalidades
