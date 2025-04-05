@@ -13,7 +13,7 @@ export async function deleteCategoryAction(formData: FormData) {
       await prisma.product.findMany({ where: { categoryId: id } })
     ).map(({ image }) => image);
     const [, category] = await prisma.$transaction([
-      prisma.product.deleteMany({ where: { id } }),
+      prisma.product.deleteMany({ where: { categoryId: id } }),
       prisma.category.delete({
         where: { id },
       }),
@@ -21,7 +21,7 @@ export async function deleteCategoryAction(formData: FormData) {
 
     images.forEach((image) => deleteImageFromS3(image));
 
-    console.log("Deletou categoria com sucesso: " + category);
+    console.log("Deletou categoria com sucesso: " + JSON.stringify(category));
     revalidatePath("/admin");
   } catch (error) {
     console.error("Delete category error:", error);
