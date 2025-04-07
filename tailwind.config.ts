@@ -1,6 +1,8 @@
 import { heroui } from "@heroui/theme";
 import type { Config } from "tailwindcss";
 
+import * as defaultTheme from "tailwindcss/defaultTheme";
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -36,6 +38,10 @@ export default {
         "auto-fit-250": "repeat(auto-fit, minmax(250px, 1fr))",
         "auto-fill-450": "repeat(auto-fill, minmax(450px, 1fr))",
       },
+    },
+    screens: {
+      xs: "375px",
+      ...defaultTheme.screens,
     },
   },
   plugins: [heroui()],
