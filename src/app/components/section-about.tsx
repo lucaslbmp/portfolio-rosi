@@ -19,7 +19,7 @@ const SectionAbout = () => {
           />
         </div>
 
-        <div className="flex-[1_1_600px]">
+        <div className="md:flex-[1_1_600px]">
           <h2 className="text-2xl text-foregroundTertiary mb-4">
             Quem sou eu?
           </h2>
