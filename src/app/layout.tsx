@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans, Roboto } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const openSans = Open_Sans({
@@ -32,6 +33,7 @@ export default function RootLayout({
       className={`${roboto.className} ${openSans.className} antialiased`}
     >
       <body>{children}</body>
+      <GoogleTagManager gtmId="GTM-57MZ32ND" />
     </html>
   );
 }
