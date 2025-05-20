@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Open_Sans, Roboto } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const openSans = Open_Sans({
@@ -34,6 +34,7 @@ export default function RootLayout({
     >
       <body>{children}</body>
       <GoogleTagManager gtmId="GTM-57MZ32ND" />
+      <GoogleAnalytics gaId="G-FM56CP0VKD" />
     </html>
   );
 }
